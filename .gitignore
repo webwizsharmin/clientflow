@@ -1,0 +1,20 @@
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Editor/IDE settings
+.vscode/
+.idea/
+
+# Node dependencies 
+node_modules/
+
+# Build output 
+dist/
+build/
+
+# Cache files
+*.cache
