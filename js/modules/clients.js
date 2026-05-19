@@ -81,3 +81,14 @@ export function deleteClient(id) {
   // Return the deleted client for confirmation/testing
   return deletedClient;
 }
+
+// Find Client by ID
+export function getClientById(id) {
+  // Load existing client
+  let clients = loadClients();
+
+  // find client by Id
+  const index = clients.findIndex((client) => client.id === id);
+
+  return clients[index];
+}

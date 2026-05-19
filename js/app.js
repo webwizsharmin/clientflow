@@ -1,6 +1,11 @@
 import { saveClients, loadClients } from "./storage.js";
 import { seedClients } from "./data/seed.js";
-import { addClient, editClient, deleteClient } from "./modules/clients.js";
+import {
+  addClient,
+  editClient,
+  deleteClient,
+  getClientById,
+} from "./modules/clients.js";
 
 let clients = loadClients();
 
