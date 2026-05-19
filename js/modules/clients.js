@@ -3,7 +3,7 @@ import { saveClients, loadClients } from "../storage.js";
 import { generateId } from "../utils.js";
 
 export function addClient(newClient) {
-  // Destructure with safe defaoults
+  // Destructure with safe defaults
   const {
     name = "John",
     email = "john@mail.com",
@@ -34,7 +34,7 @@ export function addClient(newClient) {
   return newClientObj;
 }
 
-// Edit clinet
+// Edit client
 export function editClient(id, updatedData) {
   //  Load existing clents from localStorage
   let clients = loadClients();
@@ -57,7 +57,7 @@ export function editClient(id, updatedData) {
   // Save updated list back to localStorage
   saveClients(clients);
 
-  // Return the updated client object for confirmation/ tsting
+  // Return the updated client object for confirmation/ testing
   return updatedClient;
 }
 
