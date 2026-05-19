@@ -60,3 +60,24 @@ export function editClient(id, updatedData) {
   // Return the updated client object for confirmation/ tsting
   return updatedClient;
 }
+
+// delete Client
+export function deleteClient(id) {
+  // Load existing clients from localStorage
+  let clients = loadClients();
+
+  // Find the client by ID
+  const index = clients.findIndex((client) => client.id === id);
+  if (index === -1) {
+    throw new Error(`Client with id ${id} not found`);
+  }
+
+  // Remove the client and capture the deleted object
+  const [deletedClient] = clients.splice(index, 1);
+
+  // Save updated list back to LocalStorage
+  saveClients(clients);
+
+  // Return the deleted client for confirmation/testing
+  return deletedClient;
+}
