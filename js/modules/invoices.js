@@ -59,3 +59,37 @@ export function getInvoiceById(invoiceId) {
 
   return invoices[index];
 }
+
+// Edit invoice
+export function editInvoice(id, updatedData) {
+  // load invoice
+  let invoices = loadInvoices();
+
+  // find inovice by id
+
+  const index = invoices.findIndex((invoice) => invoice.id === id);
+
+  if (index === -1) {
+    throw new Error(`invoice with id ${id} is not found!`);
+  }
+
+  const invoice = invoices[index];
+
+  // Find client by clientId
+  const client = getClientById(invoice.clientId);
+
+  //   Merge new data eith old invoce
+  const updatedInv = {
+    ...invoice,
+    ...(client && { clientName: client.name, clientPhone: client.phone }),
+    ...updatedData,
+  };
+
+  //   Replace the old invoice with updated one
+  invoices[index] = updatedInv;
+
+  //   save updated invoice
+  saveInvoices(invoices);
+
+  return updatedInv;
+}

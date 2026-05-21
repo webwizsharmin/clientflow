@@ -6,7 +6,7 @@ import {
   deleteClient,
   getClientById,
 } from "./modules/clients.js";
-import { addInvoice, getInvoiceById } from "./modules/invoices.js";
+import { addInvoice, editInvoice, getInvoiceById } from "./modules/invoices.js";
 
 let clients = loadClients();
 
@@ -22,3 +22,10 @@ console.log(inv); */
 
 /* let getInv = getInvoiceById("inv_002");
 console.log(getInv); */
+
+/* let editedInv = editInvoice("inv_002", {
+  clientId: 1,
+  amount: 1500,
+});
+
+console.log(editedInv); */
