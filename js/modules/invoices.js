@@ -93,3 +93,24 @@ export function editInvoice(id, updatedData) {
 
   return updatedInv;
 }
+
+// Delete invoice
+export function deleteInvoice(invoiceId) {
+  // load all invoices
+  let invoices = loadInvoices();
+
+  // find the index by invoiceId
+  const index = invoices.findIndex((inv) => inv.id === invoiceId);
+
+  if (index === -1) {
+    throw new Error(`Invoice with id ${invoiceId} not found`);
+  }
+
+  // Remove the invoice and capture the deleted object
+  let deletedInvoice = invoices.splice(index, 1);
+
+  // save the updated invoices
+  saveInvoices(invoices);
+
+  return deletedInvoice;
+}

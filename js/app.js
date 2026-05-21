@@ -1,4 +1,4 @@
-import { saveClients, loadClients } from "./storage.js";
+import { saveClients, loadClients, loadInvoices } from "./storage.js";
 import { seedClients } from "./data/seed.js";
 import {
   addClient,
@@ -6,7 +6,12 @@ import {
   deleteClient,
   getClientById,
 } from "./modules/clients.js";
-import { addInvoice, editInvoice, getInvoiceById } from "./modules/invoices.js";
+import {
+  addInvoice,
+  deleteInvoice,
+  editInvoice,
+  getInvoiceById,
+} from "./modules/invoices.js";
 
 let clients = loadClients();
 
@@ -16,7 +21,7 @@ if (clients.length === 0) {
 }
 console.log("clients initialized:", clients);
 
-/** let inv = addInvoice({ id: "inv_002", clientId: "client_001", amount: 500 });
+/*let inv = addInvoice({ id: "inv_003", clientId: 2, amount: 1500 });
 
 console.log(inv); */
 
@@ -29,3 +34,9 @@ console.log(getInv); */
 });
 
 console.log(editedInv); */
+
+/* let deletedInv = deleteInvoice("inv_002");
+console.log("deleted Invoice:", deletedInv); */
+
+/* let invoices = loadInvoices();
+console.log("total invoices:", invoices); */
