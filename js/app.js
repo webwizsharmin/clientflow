@@ -13,6 +13,8 @@ import {
   getInvoiceById,
 } from "./modules/invoices.js";
 
+import { renderRevenueChart, renderLeadChart } from "./modules/charts.js";
+
 let clients = loadClients();
 
 if (clients.length === 0) {
@@ -40,3 +42,17 @@ console.log("deleted Invoice:", deletedInv); */
 
 /* let invoices = loadInvoices();
 console.log("total invoices:", invoices); */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const revenueCtx = document.getElementById("revenueChart");
+  renderRevenueChart(revenueCtx, {
+    labels: ["Jan", "Feb", "Mar"],
+    values: [5000, 7000, 6500],
+  });
+
+  const leadCtx = document.getElementById("leadChart");
+  renderLeadChart(leadCtx, {
+    labels: ["week 1", "week 2", "week 3"],
+    values: [10, 15, 20],
+  });
+});
