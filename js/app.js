@@ -6,6 +6,7 @@ import {
   deleteClient,
   getClientById,
 } from "./modules/clients.js";
+import { addInvoice } from "./modules/invoices.js";
 
 let clients = loadClients();
 
@@ -14,3 +15,7 @@ if (clients.length === 0) {
   saveClients(clients);
 }
 console.log("clients initialized:", clients);
+
+// let inv = addInvoice({ id: "inv_002", clientId: "client_001", amount: 500 });
+
+// console.log(inv);

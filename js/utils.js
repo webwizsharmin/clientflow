@@ -4,5 +4,5 @@ export function generateId() {
 
 // auto generate issuedate
 export function getIssueDate() {
-  return new Date().toISOString;
+  return new Date().toISOString();
 }
