@@ -43,3 +43,19 @@ export function addInvoice(newInvoice) {
 
   return newInvoiceObj;
 }
+
+// get invoice by id
+export function getInvoiceById(invoiceId) {
+  // load invoices
+  let invoices = loadInvoices();
+
+  // find index by id
+
+  const index = invoices.findIndex((invoice) => invoice.id === invoiceId);
+
+  if (index === -1) {
+    throw new Error(`invoice with id ${id} is not found!`);
+  }
+
+  return invoices[index];
+}
