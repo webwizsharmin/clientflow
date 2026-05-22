@@ -15,6 +15,7 @@ import {
 
 import { renderRevenueChart, renderLeadChart } from "./modules/charts.js";
 
+import { initClientModal } from "./ui/modal.js";
 let clients = loadClients();
 
 if (clients.length === 0) {
@@ -56,3 +57,5 @@ document.addEventListener("DOMContentLoaded", () => {
     values: [10, 15, 20],
   });
 });
+
+initClientModal();
