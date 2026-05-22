@@ -1,0 +1,15 @@
+.form-label {
+  @apply mb-2 block text-sm font-semibold text-slate-700;
+}
+
+.form-input {
+  @apply w-full rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-blue-600 focus:ring-4 focus:rign-blue-100;
+}
+
+.btn-primary {
+  @apply rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-700;
+}
+
+.btn-secondary {
+  @apply rounded-xl border border-slate-300 px-5 py-3 font-semibold text-slate-700 transition hover:bg-slate-100;
+}
