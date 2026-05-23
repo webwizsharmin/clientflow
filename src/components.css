@@ -34,3 +34,20 @@
 .user-profile {
   @apply flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-slate-50 transition;
 }
+
+/* Dashboard cards */
+.card {
+  @apply bg-white rounded-xl shadow p-5 flex flex-col gap-4;
+}
+
+.card-header {
+  @apply flex items-center justify-between;
+}
+
+.card-title {
+  @apply text-sm font-semibold text-slate-500;
+}
+
+.card-value {
+  @apply text-2xl font-bold text-slate-800;
+}
