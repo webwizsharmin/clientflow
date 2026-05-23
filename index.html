@@ -15,9 +15,9 @@
     <link rel="stylesheet" href="./dist/output.css" />
     <title>Clientflow</title>
   </head>
-  <body>
+  <body class="flex h-screen bg-slate-50 font-poppins">
     <!-- Sidebar -->
-    <aside>
+    <aside class="w-64 bg-white shadow-md flex flex-col justify-between">
       <nav>
         <ul>
           <li>
@@ -65,177 +65,182 @@
       </div>
     </aside>
 
-    <!-- Topbar -->
-    <header>
-      <!-- Search bar -->
-      <form role="search">
-        <i class="bx bx-search"></i>
-        <input
-          type="search"
-          aria-label="Search Site Content"
-          placeholder="search . . ."
-        />
-      </form>
+    <div class="flex-1 flex flex-col">
+      <!-- Topbar -->
+      <header
+        class="h-16 bg-white shadow px-6 flex items-center justify-between"
+      >
+        <!-- Search bar -->
+        <form role="search">
+          <i class="bx bx-search"></i>
+          <input
+            type="search"
+            aria-label="Search Site Content"
+            placeholder="search . . ."
+          />
+        </form>
 
-      <!-- Primary Action -->
-      <button type="button" class="btn">+ New Client</button>
-
-      <!-- Control -->
-      <nav aria-label="User controls">
-        <button tupe="button" aria-label="Notifications">
-          <i class="bx bx-bell"></i>
-        </button>
-        <button tupe="button" aria-label="Toggle theme">
-          <i class="bx bx-sun"></i>
+        <!-- Primary Action -->
+        <button id="newClientBtn" type="button" class="btn-primary">
+          + New Client
         </button>
 
-        <div>
-          <i class="bx bx-user-circle"></i>
-          <div>
-            <p>John Doe</p>
-            <p>admin</p>
-          </div>
-        </div>
-      </nav>
-    </header>
+        <!-- Control -->
+        <nav aria-label="User controls">
+          <button tupe="button" aria-label="Notifications">
+            <i class="bx bx-bell"></i>
+          </button>
+          <button tupe="button" aria-label="Toggle theme">
+            <i class="bx bx-sun"></i>
+          </button>
 
-    <!-- Main Content -->
-    <main>
-      <h1>Dashboard</h1>
-      <p>Welcome, John Doe.</p>
-      <div>
-        <!-- total revenue  -->
-        <div>
-          <!-- Header Section -->
           <div>
+            <i class="bx bx-user-circle"></i>
             <div>
-              <p>Total Revenue</p>
-              <h3>$54,985</h3>
+              <p>John Doe</p>
+              <p>admin</p>
             </div>
-            <button>
-              <i class="bx bx-dollar"></i>
-            </button>
           </div>
+        </nav>
+      </header>
 
-          <!-- chart section -->
-          <div>
-            <canvas id="revenueChart"></canvas>
-          </div>
-        </div>
-
-        <!-- Active Leads -->
+      <!-- Main Content -->
+      <main class="p-6 overflow-y-auto">
+        <h1>Dashboard</h1>
+        <p>Welcome, John Doe.</p>
         <div>
-          <!-- Header Section -->
+          <!-- total revenue  -->
           <div>
+            <!-- Header Section -->
             <div>
-              <p>Active Leads</p>
-              <h3>$1,985</h3>
+              <div>
+                <p>Total Revenue</p>
+                <h3>$54,985</h3>
+              </div>
+              <button>
+                <i class="bx bx-dollar"></i>
+              </button>
             </div>
-            <button>
-              <i class="bx bxs-user-detail"></i>
-            </button>
+
+            <!-- chart section -->
+            <div>
+              <canvas id="revenueChart"></canvas>
+            </div>
           </div>
 
-          <!-- chart section -->
+          <!-- Active Leads -->
           <div>
-            <canvas id="leadChart"></canvas>
+            <!-- Header Section -->
+            <div>
+              <div>
+                <p>Active Leads</p>
+                <h3>$1,985</h3>
+              </div>
+              <button>
+                <i class="bx bxs-user-detail"></i>
+              </button>
+            </div>
+
+            <!-- chart section -->
+            <div>
+              <canvas id="leadChart"></canvas>
+            </div>
+          </div>
+
+          <!-- total client -->
+          <div>
+            <!-- Header Section -->
+            <div>
+              <div>
+                <p>Total Client</p>
+                <h3>$4,790</h3>
+              </div>
+              <button>
+                <i class="bx bxs-user"></i>
+              </button>
+            </div>
+
+            <!-- chart section -->
+            <div>
+              <canvas id="totalClientChart"></canvas>
+            </div>
+          </div>
+
+          <!-- unpaid invoices -->
+          <div>
+            <!-- Header Section -->
+            <div>
+              <div>
+                <p>Unpaid Invoices</p>
+                <h3>$54,85</h3>
+              </div>
+              <button>
+                <i class="bx bx-spreadsheet"></i>
+              </button>
+            </div>
+
+            <!-- chart section -->
+            <div>
+              <canvas id="unpaidInvChart"></canvas>
+            </div>
           </div>
         </div>
 
-        <!-- total client -->
-        <div>
-          <!-- Header Section -->
-          <div>
-            <div>
-              <p>Total Client</p>
-              <h3>$4,790</h3>
-            </div>
-            <button>
-              <i class="bx bxs-user"></i>
-            </button>
-          </div>
-
-          <!-- chart section -->
-          <div>
-            <canvas id="totalClientChart"></canvas>
-          </div>
-        </div>
-
-        <!-- unpaid invoices -->
-        <div>
-          <!-- Header Section -->
-          <div>
-            <div>
-              <p>Unpaid Invoices</p>
-              <h3>$54,85</h3>
-            </div>
-            <button>
-              <i class="bx bx-spreadsheet"></i>
-            </button>
-          </div>
-
-          <!-- chart section -->
-          <div>
-            <canvas id="unpaidInvChart"></canvas>
-          </div>
-        </div>
-      </div>
-
-      <!-- Monthly revenue -->
-      <div>
         <!-- Monthly revenue -->
         <div>
-          <!-- Header Section -->
+          <!-- Monthly revenue -->
           <div>
+            <!-- Header Section -->
             <div>
-              <p>Monthly Revenue</p>
-              <h3>$54,85</h3>
+              <div>
+                <p>Monthly Revenue</p>
+                <h3>$54,85</h3>
+              </div>
+              <button>
+                <i class="bx bx-line-chart"></i>
+              </button>
             </div>
-            <button>
-              <i class="bx bx-line-chart"></i>
-            </button>
-          </div>
 
-          <!-- chart section -->
+            <!-- chart section -->
+            <div>
+              <canvas id="monthlyRevChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div>
           <div>
-            <canvas id="monthlyRevChart"></canvas>
+            <h4>Lorem, ipsum dolor.</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius,
+              optio.
+            </p>
+          </div>
+          <div>
+            <h4>Lorem, ipsum dolor.</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius,
+              optio.
+            </p>
+          </div>
+          <div>
+            <h4>Lorem, ipsum dolor.</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius,
+              optio.
+            </p>
+          </div>
+          <div>
+            <h4>Lorem, ipsum dolor.</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius,
+              optio.
+            </p>
           </div>
         </div>
-      </div>
-
-      <!-- Recent Activity -->
-      <div>
-        <div>
-          <h4>Lorem, ipsum dolor.</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius,
-            optio.
-          </p>
-        </div>
-        <div>
-          <h4>Lorem, ipsum dolor.</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius,
-            optio.
-          </p>
-        </div>
-        <div>
-          <h4>Lorem, ipsum dolor.</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius,
-            optio.
-          </p>
-        </div>
-        <div>
-          <h4>Lorem, ipsum dolor.</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius,
-            optio.
-          </p>
-        </div>
-      </div>
-    </main>
-
+      </main>
+    </div>
     <script type="module" src="./js/app.js"></script>
   </body>
 </html>
