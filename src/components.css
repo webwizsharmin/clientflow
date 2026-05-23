@@ -3,7 +3,7 @@
 }
 
 .form-input {
-  @apply w-full rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-blue-600 focus:ring-4 focus:rign-blue-100;
+  @apply w-full rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100;
 }
 
 .btn-primary {
