@@ -79,8 +79,8 @@
         class="h-16 bg-white shadow px-6 flex items-center justify-between"
       >
         <!-- Search bar -->
-        <form role="search">
-          <i class="bx bx-search"></i>
+        <form role="search" class="search-bar w-1/2">
+          <i class="bx bx-search text-slate-500"></i>
           <input
             type="search"
             aria-label="Search Site Content"
@@ -89,24 +89,28 @@
         </form>
 
         <!-- Primary Action -->
-        <button id="newClientBtn" type="button" class="btn-primary">
+        <button
+          id="newClientBtn"
+          type="button"
+          class="btn-primary text-sm px-4 py-2"
+        >
           + New Client
         </button>
 
         <!-- Control -->
-        <nav aria-label="User controls">
-          <button tupe="button" aria-label="Notifications">
-            <i class="bx bx-bell"></i>
+        <nav aria-label="User controls" class="flex items-center gap-x-4">
+          <button tupe="button" aria-label="Notifications" class="icon-btn">
+            <i class="bx bx-bell text-xl"></i>
           </button>
-          <button tupe="button" aria-label="Toggle theme">
-            <i class="bx bx-sun"></i>
+          <button tupe="button" aria-label="Toggle theme" class="icon-btn">
+            <i class="bx bx-sun text-xl"></i>
           </button>
 
-          <div>
-            <i class="bx bx-user-circle"></i>
+          <div class="user-profile">
+            <i class="bx bx-user-circle text-2xl"></i>
             <div>
-              <p>John Doe</p>
-              <p>admin</p>
+              <p class="text-sm font-semibold">John Doe</p>
+              <p class="text-xs text-slate-500">admin</p>
             </div>
           </div>
         </nav>
