@@ -17,3 +17,16 @@
 .sidebar-link {
   @apply flex items-center gap-3 px-4 py-2 rounded-lg text-slate-600 hover:bg-blue-50 hover:text-blue-600 transition;
 }
+
+/* Topbar */
+.search-bar {
+  @apply flex items-center gap-2 bg-slate-100 px-3 py-2 rounded-lg;
+}
+
+.search-bar input {
+  @apply bg-transparent outline-none text-sm w-full;
+}
+
+.icon-btn {
+  @apply p-2 rounded-lg hover:bg-slate-100 transition;
+}
