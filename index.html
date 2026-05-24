@@ -69,7 +69,7 @@
       </div>
     </aside>
 
-    <div class="flex-1 flex flex-col">
+    <div class="flex-1 flex flex-col overflow-hidden">
       <!-- Topbar -->
       <header
         class="h-16 bg-white shadow px-6 flex items-center justify-between"
@@ -113,7 +113,7 @@
       </header>
 
       <!-- Main Content -->
-      <main class="p-6 overflow-y-auto bg-slate-50 min-h-screen">
+      <main class="flex-1 p-6 overflow-y-auto bg-slate-50">
         <!-- Page header -->
         <h1 class="text-2xl font-bold text-slate-800 mb-2">Dashboard</h1>
         <p class="text-slate-500 mb-6">Welcome, John Doe.</p>
@@ -132,8 +132,8 @@
                 <i class="bx bx-dollar text-xl"></i>
               </button>
             </div>
-            <div class="h-32">
-              <canvas id="revenueChart"></canvas>
+            <div class="h-40 w-full">
+              <canvas id="revenueChart" class="h-full w-full"></canvas>
             </div>
           </div>
 
@@ -206,46 +206,50 @@
               <canvas id="monthlyRevChart"></canvas>
             </div>
           </div>
-        </div>
 
-        <!-- Recent Activity -->
-        <div class="card">
-          <h3 class="text-lg font-bold text-slate-700 mb-4">Recent Activity</h3>
-          <div class="space-y-4">
-            <div>
-              <h4 class="text-sm font-semibold text-slate-600">
-                New Client Added
-              </h4>
-              <p class="text-slate-500 text-sm">
-                Acme Corp was added to your client list by John Doe on May 22,
-                2026.
-              </p>
-            </div>
-            <div>
-              <h4 class="text-sm font-semibold text-slate-600">Invoice Sent</h4>
-              <p class="text-slate-500 text-sm">
-                Invoice #INV‑2045 for $3,200 was sent to Bright Solutions on May
-                21, 2026.
-              </p>
-            </div>
-            <div>
-              <h4 class="text-sm font-semibold text-slate-600">
-                Lead Status Updated
-              </h4>
-              <p class="text-slate-500 text-sm">
-                Lead “Sarah Johnson” moved from
-                <span class="font-semibold text-green-600">Prospect</span> to
-                <span class="font-semibold text-blue-600">Active</span>.
-              </p>
-            </div>
-            <div>
-              <h4 class="text-sm font-semibold text-slate-600">
-                Task Completed
-              </h4>
-              <p class="text-slate-500 text-sm">
-                Follow‑up call with GlobalTech was marked complete by Jane Smith
-                on May 20, 2026.
-              </p>
+          <!-- Recent Activity -->
+          <div class="card">
+            <h3 class="text-lg font-bold text-slate-700 mb-4">
+              Recent Activity
+            </h3>
+            <div class="space-y-4">
+              <div>
+                <h4 class="text-sm font-semibold text-slate-600">
+                  New Client Added
+                </h4>
+                <p class="text-slate-500 text-sm">
+                  Acme Corp was added to your client list by John Doe on May 22,
+                  2026.
+                </p>
+              </div>
+              <div>
+                <h4 class="text-sm font-semibold text-slate-600">
+                  Invoice Sent
+                </h4>
+                <p class="text-slate-500 text-sm">
+                  Invoice #INV‑2045 for $3,200 was sent to Bright Solutions on
+                  May 21, 2026.
+                </p>
+              </div>
+              <div>
+                <h4 class="text-sm font-semibold text-slate-600">
+                  Lead Status Updated
+                </h4>
+                <p class="text-slate-500 text-sm">
+                  Lead “Sarah Johnson” moved from
+                  <span class="font-semibold text-green-600">Prospect</span> to
+                  <span class="font-semibold text-blue-600">Active</span>.
+                </p>
+              </div>
+              <div>
+                <h4 class="text-sm font-semibold text-slate-600">
+                  Task Completed
+                </h4>
+                <p class="text-slate-500 text-sm">
+                  Follow‑up call with GlobalTech was marked complete by Jane
+                  Smith on May 20, 2026.
+                </p>
+              </div>
             </div>
           </div>
         </div>
