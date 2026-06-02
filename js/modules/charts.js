@@ -1,5 +1,3 @@
-import { Chart } from "chart.js";
-
 export function renderRevenueChart(ctx, data) {
   new Chart(ctx, {
     type: "line",
@@ -31,6 +29,27 @@ export function renderLeadChart(ctx, data) {
           backgroundColor: "#22c55e",
         },
       ],
+    },
+  });
+}
+
+export function renderUnpaidInvChart(ctx, data) {
+  new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: data.labels,
+      datasets: [
+        {
+          label: "Unpaid Invoices",
+          data: data.values,
+          borderColor: "#ef4444",
+          backgroundColor: "#f97316",
+          // tension: 0.3,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
     },
   });
 }
