@@ -17,49 +17,61 @@
   </head>
   <body class="flex h-screen bg-slate-50 font-poppins overflow-x-hidden">
     <!-- Sidebar -->
-    <aside class="w-64 bg-white shadow-md flex flex-col justify-between">
+    <aside
+      class="w-16 lg:w-64 bg-white shadow-md flex flex-col justify-between"
+    >
       <nav>
         <ul>
           <li>
-            <a href="#home" class="sidebar-link">
-              <i class="bx bxs-dashboard"></i>Dashboard
+            <a href="#home" class="sidebar-link flex items-center space-x-2">
+              <i class="bx bxs-dashboard text-xl"></i
+              ><span class="hidden lg:inline">Dashboard</span>
             </a>
           </li>
           <li>
-            <a href="#clients" class="sidebar-link">
-              <i class="bx bxs-user"></i>Clients
+            <a href="#clients" class="sidebar-link flex items-center space-x-2">
+              <i class="bx bxs-user text-xl"></i>
+              <span class="hidden lg:inline">Clients</span>
             </a>
           </li>
           <li>
-            <a href="#leads" class="sidebar-link"
-              ><i class="bx bxs-user-detail"></i> leads</a
-            >
+            <a href="#leads" class="sidebar-link flex items-center space-x-2">
+              <i class="bx bxs-user-detail text-xl"></i>
+              <span class="hidden lg:inline">Leads</span>
+            </a>
           </li>
           <li>
-            <a href="#invoices" class="sidebar-link">
-              <i class="bx bxs-spreadsheet"></i>Invoices</a
+            <a
+              href="#invoices"
+              class="sidebar-link flex items-center space-x-2"
             >
+              <i class="bx bxs-spreadsheet text-xl"></i>
+              <span class="hidden lg:inline">Invoices</span>
+            </a>
           </li>
           <li>
-            <a href="#tasks" class="sidebar-link">
-              <i class="bx bx-task-x"></i>Tasks</a
-            >
+            <a href="#tasks" class="sidebar-link flex items-center space-x-2">
+              <i class="bx bx-task-x text-xl"></i>
+              <span class="hidden lg:inline">Tasks</span>
+            </a>
           </li>
           <li>
-            <a href="#setting" class="sidebar-link">
-              <i class="bx bxs-cog"></i>Setting</a
-            >
+            <a href="#setting" class="sidebar-link flex items-center space-x-2">
+              <i class="bx bxs-cog text-xl"></i>
+              <span class="hidden lg:inline">Setting</span>
+            </a>
           </li>
           <li>
-            <a href="#help" class="sidebar-link"
-              ><i class="bx bxs-help-circle"></i>Help and Support</a
-            >
+            <a href="#help" class="sidebar-link flex items-center space-x-2">
+              <i class="bx bxs-help-circle text-xl"></i>
+              <span class="hidden lg:inline">Help & Support</span>
+            </a>
           </li>
         </ul>
       </nav>
-      <div class="user-profile">
+      <div class="user-profile flex items-center space-x-2 p-2">
         <i class="bx bx-user-circle text-2xl"></i>
-        <div>
+        <div class="hidden lg:block">
           <p class="text-sm font-semibold">John Doe</p>
           <p class="text-xs text-slate-500">admin</p>
         </div>
