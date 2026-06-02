@@ -84,15 +84,16 @@
     <div class="flex-1 flex flex-col overflow-hidden">
       <!-- Topbar -->
       <header
-        class="h-16 bg-white shadow px-6 flex items-center justify-between"
+        class="h-16 bg-white shadow px-4 flex items-center justify-between gap-4"
       >
         <!-- Search bar -->
-        <form role="search" class="search-bar w-1/2">
-          <i class="bx bx-search text-slate-500"></i>
+        <form role="search" class="search-bar">
+          <i class="bx bx-search text-slate-500 mr-2"></i>
           <input
             type="search"
             aria-label="Search Site Content"
             placeholder="search . . ."
+            class="flex-1 border-none focus:ring-0"
           />
         </form>
 
@@ -100,13 +101,13 @@
         <button
           id="newClientBtn"
           type="button"
-          class="btn-primary text-sm px-4 py-2"
+          class="btn-primary text-sm px-4 py-2 whitespace-nowrap"
         >
           + New Client
         </button>
 
         <!-- Control -->
-        <nav aria-label="User controls" class="flex items-center gap-x-4">
+        <nav aria-label="User controls" class="flex items-center gap-3">
           <button tupe="button" aria-label="Notifications" class="icon-btn">
             <i class="bx bx-bell text-xl"></i>
           </button>
@@ -114,9 +115,9 @@
             <i class="bx bx-sun text-xl"></i>
           </button>
 
-          <div class="user-profile">
+          <div class="flex items-center gap-2">
             <i class="bx bx-user-circle text-2xl"></i>
-            <div>
+            <div class="hidden md:block">
               <p class="text-sm font-semibold">John Doe</p>
               <p class="text-xs text-slate-500">admin</p>
             </div>
