@@ -17,6 +17,7 @@ import {
   renderRevenueChart,
   renderLeadChart,
   renderUnpaidInvChart,
+  renderMonthlyRevenueChart,
 } from "./modules/charts.js";
 
 import { initClientModal } from "./ui/modal.js";
@@ -68,6 +69,14 @@ document.addEventListener("DOMContentLoaded", () => {
   renderUnpaidInvChart(UnpaidInvCtx, {
     labels: ["week 1", "week 2", "week 3"],
     values: [1200, 800, 1500],
+  });
+
+  const monthlyRevenueCtx = document.getElementById("monthlyRevChart");
+
+  renderMonthlyRevenueChart(monthlyRevenueCtx, {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+
+    values: [12000, 15000, 18000, 20000, 22000, 25000],
   });
 });
 

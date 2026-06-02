@@ -53,3 +53,25 @@ export function renderUnpaidInvChart(ctx, data) {
     },
   });
 }
+
+export function renderMonthlyRevenueChart(ctx, data) {
+  new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: data.labels,
+      datasets: [
+        {
+          label: "Monthly Revenue",
+          data: data.values,
+          borderColor: "#4f46e5",
+          backgroundColor: "rgba(79, 70, 229, 0.2)",
+          tension: 0.3,
+          fill: true,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+    },
+  });
+}
