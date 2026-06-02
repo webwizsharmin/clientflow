@@ -120,7 +120,7 @@
 
         <!-- Metrics Grid -->
         <div
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6 w-full"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6 w-full"
         >
           <!-- total revenue  -->
           <div class="card">
@@ -153,23 +153,6 @@
             </div>
             <div class="h-40 w-full">
               <canvas id="leadChart" class="h-full w-full"></canvas>
-            </div>
-          </div>
-
-          <!-- total client -->
-          <div class="card">
-            <!-- Header Section -->
-            <div class="card-header">
-              <div>
-                <p class="card-title">Total Client</p>
-                <h3 class="card-value">4,790</h3>
-              </div>
-              <button class="text-slate-400 hover:text-slate-600">
-                <i class="bx bxs-user text-xl"></i>
-              </button>
-            </div>
-            <div class="h-40 w-full">
-              <canvas id="totalClientChart" class="h-full w-full"></canvas>
             </div>
           </div>
 
@@ -257,6 +240,10 @@
         </div>
       </main>
     </div>
+
+    <!-- Load Chart.js globally -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script type="module" src="./js/app.js"></script>
   </body>
 </html>
