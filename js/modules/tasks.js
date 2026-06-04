@@ -83,3 +83,27 @@ export function editTask(id, updatedData) {
 
   return updatedTask;
 }
+
+// DELETE TASK
+
+export function deleteTask(id) {
+  // load existing tasks
+  let tasks = loadTasks();
+
+  // find task by id
+  const index = tasks.findIndex((task) => task.id === id);
+
+  if (index === -1) {
+    throw new Error(`task with id ${id} is not found!`);
+  }
+
+  const task = tasks[index];
+
+  // remove the task from existing task array
+  const [deletedTask] = tasks.splice(index, 1);
+
+  // save the tasks
+  saveTasks(tasks);
+
+  return deletedTask;
+}
