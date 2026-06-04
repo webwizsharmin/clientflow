@@ -107,3 +107,16 @@ export function deleteTask(id) {
 
   return deletedTask;
 }
+
+// Get a single task by id
+export function getTask(id) {
+  // load the existing functions
+  let tasks = loadTasks();
+
+  // Find the task by id
+  const task = tasks.find((t) => t.id === id);
+  if (!task) {
+    throw new Error(`Task with id ${id} is not found!`);
+  }
+  return task;
+}
