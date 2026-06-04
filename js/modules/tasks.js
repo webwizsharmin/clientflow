@@ -1,4 +1,4 @@
-import { saveTasks, loadTasks } from "../storage.js";
+import { saveTasks, loadTasks, saveInvoices } from "../storage.js";
 
 // Add task
 export function addTask(newTask) {
@@ -43,4 +43,43 @@ export function addTask(newTask) {
   saveTasks(updatedTasks);
 
   return newTaskObj;
+}
+
+// Edit Task
+export function editTask(id, updatedData) {
+  // load existing tasks
+  let tasks = loadTasks();
+
+  // Destructuring the updatedData
+  const { title, description, status, priority, dueDate, reminderTime } =
+    updatedData;
+
+  // find task by id
+  const index = tasks.findIndex((task) => task.id === id);
+
+  if (index === -1) {
+    throw new Error(`task with id ${id} is not found!`);
+  }
+
+  const task = tasks[index];
+
+  // Merge new Data with old task
+  const updatedTask = {
+    ...task,
+    title: title ?? task.title,
+    description: description ?? task.description,
+    status: status ?? task.status,
+    priority: priority ?? task.priority,
+    dueDate: dueDate ?? task.dueDate,
+    reminderTime: reminderTime ?? task.reminderTime,
+    updatedAt: new Date().toISOString(),
+  };
+
+  // Replace the old task with updated one
+  const updatedTasks = tasks.map((t, i) => (i === index ? updatedTask : t));
+
+  // save updated task
+  saveTasks(updatedTasks);
+
+  return updatedTask;
 }
