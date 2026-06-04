@@ -19,3 +19,16 @@ export function loadInvoices() {
   const invData = localStorage.getItem("invoices");
   return invData ? JSON.parse(invData) : [];
 }
+
+// TASKS PART
+
+// save tasks
+export function saveTasks(tasks) {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+// load invoices
+export function loadTasks() {
+  const taskData = localStorage.getItem("tasks");
+  return taskData ? JSON.parse(taskData) : [];
+}
