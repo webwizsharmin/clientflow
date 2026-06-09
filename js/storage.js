@@ -38,7 +38,7 @@ export function loadTasks() {
 // LEADS
 
 // Save leads
-export function save(leads) {
+export function saveLeads(leads) {
   localStorage.setItem("leads", JSON.stringify(leads));
 }
 
