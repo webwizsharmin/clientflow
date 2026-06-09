@@ -1,3 +1,5 @@
+import { jsx } from "react/jsx-runtime";
+
 export function saveClients(clients) {
   localStorage.setItem("clients", JSON.stringify(clients));
 }
@@ -31,4 +33,17 @@ export function saveTasks(tasks) {
 export function loadTasks() {
   const taskData = localStorage.getItem("tasks");
   return taskData ? JSON.parse(taskData) : [];
+}
+
+// LEADS
+
+// Save leads
+export function save(leads) {
+  localStorage.setItem("leads", JSON.stringify(leads));
+}
+
+// load leads
+export function loadLeads() {
+  let leadData = localStorage.getItem("leads");
+  return leadData ? JSON.parse(leadData) : [];
 }
