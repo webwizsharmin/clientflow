@@ -11,7 +11,7 @@ export function initClientModal() {
 
   function closeModal() {
     modal.classList.add("hidden");
-    document.body.classList.remove(overflow - hidden);
+    document.body.classList.remove("overflow-hidden");
   }
 
   openBtn?.addEventListener("click", openModal);

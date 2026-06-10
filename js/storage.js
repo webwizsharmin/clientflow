@@ -1,5 +1,3 @@
-import { jsx } from "react/jsx-runtime";
-
 export function saveClients(clients) {
   localStorage.setItem("clients", JSON.stringify(clients));
 }

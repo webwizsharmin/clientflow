@@ -22,7 +22,7 @@ import {
 
 import { initClientModal } from "./ui/modal.js";
 
-import { loadClientModal } from "./components/clientModal.js";
+import { openClientModal, closeClientModal } from "./components/clientModal.js";
 
 let clients = loadClients();
 
@@ -81,7 +81,3 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 initClientModal();
-
-document.querySelector("#newClientBtn").addEventListener("click", () => {
-  loadClientModal();
-});
