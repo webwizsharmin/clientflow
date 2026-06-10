@@ -30,7 +30,7 @@ form.addEventListener("submit", (e) => {
 
   const errors = validateClient(clienData);
   if (errors.length) {
-    alert(errrors.join("\n"));
+    alert(errors.join("\n"));
     return;
   }
 
