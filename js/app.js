@@ -24,6 +24,8 @@ import { initClientModal } from "./ui/modal.js";
 
 import { openClientModal, closeClientModal } from "./components/clientModal.js";
 
+import { renderClientsPage } from "./pages/clientsPage.js";
+
 let clients = loadClients();
 
 if (clients.length === 0) {
@@ -81,3 +83,21 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 initClientModal();
+
+document.querySelectorAll(".sidebar-link").forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const target = e.currentTarget.getAttribute("href").replace("#", "");
+
+    switch (target) {
+      case "clients":
+        renderClientsPage();
+        break;
+      default:
+        document.getElementById("content").innerHTML = `
+          <h1 class="text-2xl font-bold text-slate-800 mb-2">Dashboard</h1> 
+          <p class="text-slate-500 mb-6">welcome, John Doe.</p>
+          `;
+    }
+  });
+});
