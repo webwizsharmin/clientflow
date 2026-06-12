@@ -99,9 +99,11 @@ document.querySelectorAll(".sidebar-link").forEach((link) => {
         break;
       default:
         document.getElementById("content").innerHTML = `
-          <h1 class="text-2xl font-bold text-slate-800 mb-2">Dashboard</h1> 
-          <p class="text-slate-500 mb-6">welcome, John Doe.</p>
-          `;
+        <h1 class="text-2xl font-bold text-slate-800 mb-2"> Page not found!</h1>
+        `;
     }
   });
 });
+
+// Render Dashboard by default on page load
+renderDashboardPage();
