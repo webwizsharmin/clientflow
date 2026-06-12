@@ -25,6 +25,7 @@ import { initClientModal } from "./ui/modal.js";
 import { openClientModal, closeClientModal } from "./components/clientModal.js";
 
 import { renderClientsPage } from "./pages/clientsPage.js";
+import { renderDashboardPage } from "./pages/dashboardPage.js";
 
 let clients = loadClients();
 
@@ -92,6 +93,9 @@ document.querySelectorAll(".sidebar-link").forEach((link) => {
     switch (target) {
       case "clients":
         renderClientsPage();
+        break;
+      case "home":
+        renderDashboardPage();
         break;
       default:
         document.getElementById("content").innerHTML = `
