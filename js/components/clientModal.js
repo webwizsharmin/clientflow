@@ -18,19 +18,17 @@ export function openClientModal(client = null) {
   if (client) {
     title.textContent = "Edit Client";
     saveBtn.textContent = "Update Client";
-  } else {
-    title.textContent = "Add Client";
-    saveBtn.textContent = "Save Client";
-  }
-
-  if (client) {
     form.clientName.value = client.name;
     form.clientEmail.value = client.email;
     form.clientPhone.value = client.number || "";
-    form.clientCompany.value = client.company || "";
-    form.clientNotes.value = client.notes || "";
+    form.clientAddress.value = client.address || "";
+    form.clientStatus.value = client.status || "active";
+    form.clientEngagement.value = client.engagement || "medium";
+
     form.dataset.editId = client.id;
   } else {
+    title.textContent = "Add Client";
+    saveBtn.textContent = "Save Client";
     form.reset();
     delete form.dataset.editId;
   }

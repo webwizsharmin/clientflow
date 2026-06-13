@@ -277,9 +277,6 @@
   .max-h-\[90vh\] {
     max-height: 90vh;
   }
-  .w-1\/2 {
-    width: calc(1 / 2 * 100%);
-  }
   .w-9 {
     width: calc(var(--spacing) * 9);
   }
@@ -635,6 +632,11 @@
       box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
     }
   }
+  .sm\:w-3\/4 {
+    @media (width >= 40rem) {
+      width: calc(3 / 4 * 100%);
+    }
+  }
   .sm\:flex-row {
     @media (width >= 40rem) {
       flex-direction: row;
@@ -669,6 +671,11 @@
   .md\:table-cell {
     @media (width >= 48rem) {
       display: table-cell;
+    }
+  }
+  .md\:w-1\/2 {
+    @media (width >= 48rem) {
+      width: calc(1 / 2 * 100%);
     }
   }
   .md\:grid-cols-2 {

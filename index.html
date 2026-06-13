@@ -139,7 +139,7 @@
     >
       <!-- Modal Container -->
       <div
-        class="w-1/2 max-w-lg rounded-2xl bg-white shadow-2xl max-h-[90vh] animate-fadeIn"
+        class="w-full sm:w-3/4 md:w-1/2 max-w-lg rounded-2xl bg-white shadow-2xl max-h-[90vh] flex flex-col animate-fadeIn"
       >
         <!-- Modal Header -->
         <div
@@ -209,34 +209,48 @@
 
             <!-- Address -->
             <div>
-              <label for="clientCompany" class="form-label">Address</label>
+              <label for="clientAddress" class="form-label">Address</label>
               <input
                 type="text"
-                id="clientCompany"
-                name="clientCompany"
+                id="clientAddress"
+                name="clientAddress"
                 placeholder="Street, City, Country"
                 class="form-input"
               />
             </div>
 
-            <!-- Status -->
-            <div>
-              <label for="status" class="form-label">Status</label>
-              <select name="status" id="status">
-                <option value="active">Active</option>
-                <option value="inactive">Inactive</option>
-                <option value="pending">Pending</option>
-              </select>
-            </div>
+            <div class="flex flex-cols-1 md:flex-cols-3 gap-4">
+              <!-- Status -->
+              <div>
+                <label for="status" class="form-label">Status</label>
+                <select name="status" id="clientStatus">
+                  <option value="active">Active</option>
+                  <option value="inactive">Inactive</option>
+                  <option value="pending">Pending</option>
+                </select>
+              </div>
 
-            <!-- Engagement -->
-            <div>
-              <label for="engagement" class="form-label">Engagement</label>
-              <select name="engagement" id="engagement">
-                <option value="high">High</option>
-                <option value="medium">Medium</option>
-                <option value="low">Low</option>
-              </select>
+              <!-- Last interaction Date -->
+              <div>
+                <label for="last-interaction-date" class="form-label"
+                  >Last Interaction Date</label
+                >
+                <input
+                  type="date"
+                  name="last-interaction-date"
+                  id="lastInteractionDate"
+                />
+              </div>
+
+              <!-- Engagement -->
+              <div>
+                <label for="engagement" class="form-label">Engagement</label>
+                <select name="engagement" id="clientEngagement">
+                  <option value="high">High</option>
+                  <option value="medium">Medium</option>
+                  <option value="low">Low</option>
+                </select>
+              </div>
             </div>
           </div>
 
