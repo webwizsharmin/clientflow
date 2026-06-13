@@ -1,6 +1,7 @@
-import { addClient } from "../modules/clients.js";
+import { addClient, editClient } from "../modules/clients.js";
 
 import { validateClient } from "../data/validations.js";
+import { renderClientsPage } from "../pages/clientsPage.js";
 
 const modal = document.getElementById("clientModal");
 const form = document.getElementById("clientForm");
@@ -8,8 +9,31 @@ const closeBtn = document.getElementById("closeClientModal");
 const cancelBtn = document.getElementById("cancelClientModal");
 
 // open modal
-export function openClientModal() {
+export function openClientModal(client = null) {
   modal.classList.remove("hidden");
+
+  const title = document.getElementById("clientModalTitle");
+  const saveBtn = document.getElementById("saveClientModal");
+
+  if (client) {
+    title.textContent = "Edit Client";
+    saveBtn.textContent = "Update Client";
+  } else {
+    title.textContent = "Add Client";
+    saveBtn.textContent = "Save Client";
+  }
+
+  if (client) {
+    form.clientName.value = client.name;
+    form.clientEmail.value = client.email;
+    form.clientPhone.value = client.number || "";
+    form.clientCompany.value = client.company || "";
+    form.clientNotes.value = client.notes || "";
+    form.dataset.editId = client.id;
+  } else {
+    form.reset();
+    delete form.dataset.editId;
+  }
 }
 
 // close modal
@@ -23,12 +47,16 @@ if (form) {
     e.preventDefault();
 
     const clientData = {
+      id: Date.now(),
       name: form.clientName.value.trim(),
+      number: form.clientPhone.value.trim(),
       email: form.clientEmail.value.trim(),
       phone: form.clientPhone.value.trim(),
       company: form.clientCompany.value.trim(),
       address: form.clientAddress.value.trim(),
       notes: form.clientNotes.value.trim(),
+      status: "active",
+      engagement: "high",
     };
 
     const errors = validateClient(clientData);
@@ -37,9 +65,14 @@ if (form) {
       return;
     }
 
-    addClient(clientData);
+    if (form.dataset.editId) {
+      editClient(form.dataset.editId, clientData);
+    } else {
+      addClient(clientData);
+    }
     closeClientModal();
     form.reset();
+    renderClientsPage();
   });
 }
 

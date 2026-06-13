@@ -1,10 +1,11 @@
-import { loadClients } from "../storage.js";
+import { loadClients, saveClients } from "../storage.js";
 import {
   addClient,
   deleteClient,
   editClient,
   getClientById,
 } from "../modules/clients.js";
+import { openClientModal } from "../components/clientModal.js";
 
 export function renderClientsPage() {
   const content = document.getElementById("content");
@@ -143,9 +144,9 @@ export function renderClientsPage() {
         ${client.engagement} </span></td>
         <td class="hidden md:table-cell px-2 py-1 sm:px-4 sm:py-2">${client.last}</td>
         <td class="px-2 py-1 sm:px-4 sm:py-2 flex gap-2">
-          <button class="text-blue-600 hover:underline">Edit</button>
-          <button class="text-red-600 hover:underline">Delete</button>
-          <button class="text-gray-600 hover:underline">View</button>
+          <button data-id="${client.id}" class="text-blue-600 hover:underline">Edit</button>
+          <button data-id="${client.id}" class="text-red-600 hover:underline">Delete</button>
+          <button data-id="${client.id}" class="text-gray-600 hover:underline">View</button>
         </td>
       </tr>
     `;
@@ -161,9 +162,10 @@ export function renderClientsPage() {
 
   tbody.querySelectorAll("button.text-blue-600").forEach((btn) => {
     btn.addEventListener("click", (e) => {
-      const client = getClientById(e.target.dataset.id);
-      editClient(client); // open modal or edit flow
-      renderClientsPage(); // re-render after edit
+      const id = e.target.dataset.id;
+      const client = getClientById(id);
+      openClientModal(client);
+      // renderClientsPage(); // re-render after edit
     });
   });
 }
