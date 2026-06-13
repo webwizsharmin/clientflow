@@ -139,7 +139,7 @@ export function renderClientsPage() {
         <span class="px-2 py-1 rounded-md text-xs font-semibold ${client.status === "active" ? "bg-green-100 text-green-700" : client.status === "inactive" ? "bg-red-100 text-red-700" : "bg-yellow-100 text-yellow-700"}"> ${client.status}
         </span></td>
         <td class="px-2 py-1 sm:px-4 sm:py-2">
-        <span class="px-2 py-1 rounded-md text-xs font-semibold ${client.engagement === "high" ? "bg-green-100 text-green-700" : client.status === "medium" ? "bg-amber-100 text-amber-700" : "bg-orange-100 text-orange-700"}">
+        <span class="px-2 py-1 rounded-md text-xs font-semibold ${client.engagement === "high" ? "bg-green-100 text-green-700" : client.status === "medium" ? "bg-purple-100 text-purple-700" : "bg-orange-100 text-orange-700"}">
         ${client.engagement} </span></td>
         <td class="hidden md:table-cell px-2 py-1 sm:px-4 sm:py-2">${client.last}</td>
         <td class="px-2 py-1 sm:px-4 sm:py-2 flex gap-2">
