@@ -55,33 +55,33 @@ console.log("deleted Invoice:", deletedInv); */
 /* let invoices = loadInvoices();
 console.log("total invoices:", invoices); */
 
-document.addEventListener("DOMContentLoaded", () => {
-  const revenueCtx = document.getElementById("revenueChart");
-  renderRevenueChart(revenueCtx, {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-    values: [5000, 7000, 6500, 5500, 7400, 6000],
-  });
+// document.addEventListener("DOMContentLoaded", () => {
+//   const revenueCtx = document.getElementById("revenueChart");
+//   renderRevenueChart(revenueCtx, {
+//     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+//     values: [5000, 7000, 6500, 5500, 7400, 6000],
+//   });
 
-  const leadCtx = document.getElementById("leadChart");
-  renderLeadChart(leadCtx, {
-    labels: ["week 1", "week 2", "week 3"],
-    values: [10, 15, 20],
-  });
+//   const leadCtx = document.getElementById("leadChart");
+//   renderLeadChart(leadCtx, {
+//     labels: ["week 1", "week 2", "week 3"],
+//     values: [10, 15, 20],
+//   });
 
-  const UnpaidInvCtx = document.getElementById("unpaidInvChart");
-  renderUnpaidInvChart(UnpaidInvCtx, {
-    labels: ["week 1", "week 2", "week 3"],
-    values: [1200, 800, 1500],
-  });
+//   const UnpaidInvCtx = document.getElementById("unpaidInvChart");
+//   renderUnpaidInvChart(UnpaidInvCtx, {
+//     labels: ["week 1", "week 2", "week 3"],
+//     values: [1200, 800, 1500],
+//   });
 
-  const monthlyRevenueCtx = document.getElementById("monthlyRevChart");
+//   const monthlyRevenueCtx = document.getElementById("monthlyRevChart");
 
-  renderMonthlyRevenueChart(monthlyRevenueCtx, {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+//   renderMonthlyRevenueChart(monthlyRevenueCtx, {
+//     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
 
-    values: [12000, 15000, 18000, 20000, 22000, 25000],
-  });
-});
+//     values: [12000, 15000, 18000, 20000, 22000, 25000],
+//   });
+// });
 
 initClientModal();
 
