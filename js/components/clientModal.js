@@ -85,3 +85,30 @@ if (closeBtn) {
 if (cancelBtn) {
   cancelBtn.addEventListener("click", closeClientModal);
 }
+
+// View Client Modal
+export function openViewClientModal(client) {
+  const modal = document.getElementById("viewClientModal");
+  const content = document.getElementById("viewClientContent");
+
+  content.innerHTML = `
+  <p><strong>Id:</strong> ${client.id}</p>
+  <p><strong>Name:</strong> ${client.name}</p>
+  <p><strong>Email:</strong> ${client.email}</p>
+  <p><strong>Phone:</strong> ${client.phone}</p>
+  <p><strong>Address:</strong> ${client.address || "-"}</p>
+  <p><strong>Status:</strong> ${client.status}</p>
+  <p><strong>Engagement:</strong> ${client.engagement}</p>
+
+  `;
+
+  modal.classList.remove("hidden");
+}
+
+export function closeViewClientModal() {
+  document.getElementById("viewClientModal").classList.add("hidden");
+}
+
+document
+  .getElementById("closeViewClientModal")
+  .addEventListener("click", closeViewClientModal);

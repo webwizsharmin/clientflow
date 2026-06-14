@@ -5,7 +5,10 @@ import {
   editClient,
   getClientById,
 } from "../modules/clients.js";
-import { openClientModal } from "../components/clientModal.js";
+import {
+  openClientModal,
+  openViewClientModal,
+} from "../components/clientModal.js";
 
 export function renderClientsPage() {
   const content = document.getElementById("content");
@@ -146,7 +149,7 @@ export function renderClientsPage() {
         <td class="px-2 py-1 sm:px-4 sm:py-2 flex gap-2">
           <button data-id="${client.id}" class="text-blue-600 hover:underline">Edit</button>
           <button data-id="${client.id}" class=" btn-delete text-red-600 hover:underline">Delete</button>
-          <button data-id="${client.id}" class="text-gray-600 hover:underline">View</button>
+          <button data-id="${client.id}" class=" btn-view text-gray-600 hover:underline">View</button>
         </td>
       </tr>
     `;
@@ -169,5 +172,15 @@ document.addEventListener("click", (e) => {
     const id = Number(e.target.dataset.id);
     deleteClient(id);
     renderClientsPage();
+  }
+});
+
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("btn-view")) {
+    const id = Number(e.target.dataset.id);
+    const client = getClientById(id);
+    if (client) {
+      openViewClientModal(client);
+    }
   }
 });
