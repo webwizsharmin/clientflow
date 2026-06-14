@@ -13,9 +13,9 @@ export function validateClient(data) {
     errors.push("Phone number must be valid.");
   }
 
-  if (!data.company) {
-    errors.push("Company name is required.");
-  }
+  // if (!data.company) {
+  //   errors.push("Company name is required.");
+  // }
 
   return errors;
 }

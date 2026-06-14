@@ -12,15 +12,18 @@ const cancelBtn = document.getElementById("cancelClientModal");
 export function openClientModal(client = null) {
   modal.classList.remove("hidden");
 
+  const form = document.getElementById("clientForm");
   const title = document.getElementById("clientModalTitle");
   const saveBtn = document.getElementById("saveClientModal");
 
   if (client) {
     title.textContent = "Edit Client";
     saveBtn.textContent = "Update Client";
-    form.clientName.value = client.name;
-    form.clientEmail.value = client.email;
-    form.clientPhone.value = client.number || "";
+    form.dataset.editId = client.id;
+
+    form.clientName.value = client.name || "";
+    form.clientEmail.value = client.email || "";
+    form.clientPhone.value = client.phone || "";
     form.clientAddress.value = client.address || "";
     form.clientStatus.value = client.status || "active";
     form.clientEngagement.value = client.engagement || "medium";
@@ -29,8 +32,8 @@ export function openClientModal(client = null) {
   } else {
     title.textContent = "Add Client";
     saveBtn.textContent = "Save Client";
-    form.reset();
     delete form.dataset.editId;
+    form.reset();
   }
 }
 
@@ -45,16 +48,16 @@ if (form) {
     e.preventDefault();
 
     const clientData = {
-      id: Date.now(),
+      id: form.dataset.editId ? Number(form.dataset.editId) : Date.now(),
       name: form.clientName.value.trim(),
       number: form.clientPhone.value.trim(),
       email: form.clientEmail.value.trim(),
       phone: form.clientPhone.value.trim(),
-      company: form.clientCompany.value.trim(),
+
       address: form.clientAddress.value.trim(),
-      notes: form.clientNotes.value.trim(),
-      status: "active",
-      engagement: "high",
+
+      status: form.clientStatus.value,
+      engagement: form.clientEngagement.value,
     };
 
     const errors = validateClient(clientData);
@@ -64,7 +67,7 @@ if (form) {
     }
 
     if (form.dataset.editId) {
-      editClient(form.dataset.editId, clientData);
+      editClient(Number(form.dataset.editId), clientData);
     } else {
       addClient(clientData);
     }
