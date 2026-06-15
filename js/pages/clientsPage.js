@@ -149,7 +149,7 @@ export function renderClientsPage() {
         ${client.engagement} </span></td>
         <td class="hidden md:table-cell px-2 py-1 sm:px-4 sm:py-2">${client.phone}</td>
         <td class="px-2 py-1 sm:px-4 sm:py-2 flex gap-2">
-          <button data-id="${client.id}" class="text-blue-600 hover:underline">Edit</button>
+          <button data-id="${client.id}" class=" btn-edit text-blue-600 hover:underline">Edit</button>
           <button data-id="${client.id}" class=" btn-delete text-red-600 hover:underline">Delete</button>
           <button data-id="${client.id}" class=" btn-view text-gray-600 hover:underline">View</button>
         </td>
@@ -159,16 +159,23 @@ export function renderClientsPage() {
 
   // --- Wire up actions ---
 
-  tbody.querySelectorAll("button.text-blue-600").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      const id = e.target.dataset.id;
-      const client = getClientById(id);
-      openClientModal(client);
-      // renderClientsPage(); // re-render after edit
-    });
-  });
+  // tbody.querySelectorAll("button.text-blue-600").forEach((btn) => {
+  //   btn.addEventListener("click", (e) => {
+  //     const id = e.target.dataset.id;
+  //     const client = getClientById(id);
+  //     openClientModal(client);
+  //     // renderClientsPage(); // re-render after edit
+  //   });
+  // });
 }
 
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("btn-edit")) {
+    const id = Number(e.target.dataset.id);
+    const client = getClientById(id);
+    openClientModal(client);
+  }
+});
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("btn-delete")) {
     const id = Number(e.target.dataset.id);

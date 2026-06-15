@@ -1,4 +1,9 @@
-import { addClient, editClient } from "../modules/clients.js";
+import {
+  addClient,
+  editClient,
+  getClientById,
+  deleteClient,
+} from "../modules/clients.js";
 
 import { validateClient } from "../data/validations.js";
 import { renderClientsPage } from "../pages/clientsPage.js";
@@ -67,7 +72,8 @@ if (form) {
     }
 
     if (form.dataset.editId) {
-      editClient(Number(form.dataset.editId), clientData);
+      clientData.id = Number(form.dataset.editId);
+      editClient(clientData.id, clientData);
     } else {
       addClient(clientData);
     }
