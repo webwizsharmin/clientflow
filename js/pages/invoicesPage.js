@@ -99,12 +99,14 @@ export function renderInvoicesPage() {
       <option value="Inactive">Inactive</option>
       <option value="Pending">Pending</option>
     </select>
-    <select id="engagementFilter" class="border rounded px-3 py-2 text-sm">
-      <option value="">All Engagement</option>
-      <option value="High">High</option>
-      <option value="Medium">Medium</option>
-      <option value="Low">Low</option>
-    </select>
+    
+    <button
+          id="newInvBtn"
+          type="button"
+          class="btn-secondary text-sm px-4 py-2 whitespace-nowrap"
+        >
+          + New Invoice
+        </button>
   </div>
 
   <!-- Responsive Table -->
