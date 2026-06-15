@@ -169,6 +169,12 @@ export function renderClientsPage() {
   // });
 }
 
+const newClientBtn = document.getElementById("newClientBtn");
+
+newClientBtn.addEventListener("click", () => {
+  openClientModal();
+});
+
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("btn-edit")) {
     const id = Number(e.target.dataset.id);
@@ -176,6 +182,7 @@ document.addEventListener("click", (e) => {
     openClientModal(client);
   }
 });
+
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("btn-delete")) {
     const id = Number(e.target.dataset.id);
