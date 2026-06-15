@@ -7,8 +7,10 @@ export function addClient(newClient) {
   const {
     name = "John",
     email = "john@mail.com",
-    number = "0122222324232",
+    phone = "0122222324232",
     status = "active",
+    address = "London, Uk",
+    engagement = "high",
   } = newClient;
 
   //  Build new client object
@@ -17,8 +19,10 @@ export function addClient(newClient) {
     id: uniqueId,
     name,
     email,
-    number,
+    phone,
     status,
+    address,
+    engagement,
   };
 
   //   Load existing clients from localStorage
