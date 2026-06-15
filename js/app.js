@@ -26,6 +26,7 @@ import { openClientModal, closeClientModal } from "./components/clientModal.js";
 
 import { renderClientsPage } from "./pages/clientsPage.js";
 import { renderDashboardPage } from "./pages/dashboardPage.js";
+import { renderInvoicesPage } from "./pages/invoicesPage.js";
 
 let clients = loadClients();
 
@@ -96,6 +97,9 @@ document.querySelectorAll(".sidebar-link").forEach((link) => {
         break;
       case "home":
         renderDashboardPage();
+        break;
+      case "invoices":
+        renderInvoicesPage();
         break;
       default:
         document.getElementById("content").innerHTML = `
