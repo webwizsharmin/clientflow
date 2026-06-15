@@ -50,7 +50,7 @@ if (form) {
     const clientData = {
       id: form.dataset.editId ? Number(form.dataset.editId) : Date.now(),
       name: form.clientName.value.trim(),
-      number: form.clientPhone.value.trim(),
+      // phone: form.clientPhone.value.trim(),
       email: form.clientEmail.value.trim(),
       phone: form.clientPhone.value.trim(),
 

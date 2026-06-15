@@ -114,12 +114,13 @@ export function renderClientsPage() {
     <table class="min-w-full border-collapse">
       <thead>
         <tr class="bg-gray-50 text-left text-xs sm:text-sm font-semibold text-gray-700">
+          <th class="px-2 py-1 sm:px-4 sm:py-2">ID</th>
           <th class="px-2 py-1 sm:px-4 sm:py-2">Client</th>
           <th class="px-2 py-1 sm:px-4 sm:py-2">Email</th>
-          <th class="hidden md:table-cell px-2 py-1 sm:px-4 sm:py-2">Company</th>
+          <th class="hidden md:table-cell px-2 py-1 sm:px-4 sm:py-2">Address</th>
           <th class="px-2 py-1 sm:px-4 sm:py-2">Status</th>
           <th class="px-2 py-1 sm:px-4 sm:py-2">Engagement</th>
-          <th class="hidden md:table-cell px-2 py-1 sm:px-4 sm:py-2">Last Interaction</th>
+          <th class="hidden md:table-cell px-2 py-1 sm:px-4 sm:py-2">Number</th>
           <th class="px-2 py-1 sm:px-4 sm:py-2">Actions</th>
         </tr>
       </thead>
@@ -136,16 +137,17 @@ export function renderClientsPage() {
   clients.forEach((client) => {
     tbody.innerHTML += `
       <tr class="border-b hover:bg-gray-100 text-xs sm:text-sm">
+        <td class="px-2 py-1 sm:px-4 sm:py-2">${client.id}</td>
         <td class="px-2 py-1 sm:px-4 sm:py-2">${client.name}</td>
         <td class="px-2 py-1 sm:px-4 sm:py-2">${client.email}</td>
-        <td class="hidden md:table-cell px-2 py-1 sm:px-4 sm:py-2">${client.company}</td>
+        <td class="hidden md:table-cell px-2 py-1 sm:px-4 sm:py-2">${client.address}</td>
         <td class="px-2 py-1 sm:px-4 sm:py-2">
         <span class="px-2 py-1 rounded-md text-xs font-semibold ${client.status === "active" ? "bg-green-100 text-green-700" : client.status === "inactive" ? "bg-red-100 text-red-700" : "bg-yellow-100 text-yellow-700"}"> ${client.status}
         </span></td>
         <td class="px-2 py-1 sm:px-4 sm:py-2">
         <span class="px-2 py-1 rounded-md text-xs font-semibold ${client.engagement === "high" ? "bg-green-100 text-green-700" : client.status === "medium" ? "bg-purple-100 text-purple-700" : "bg-orange-100 text-orange-700"}">
         ${client.engagement} </span></td>
-        <td class="hidden md:table-cell px-2 py-1 sm:px-4 sm:py-2">${client.last}</td>
+        <td class="hidden md:table-cell px-2 py-1 sm:px-4 sm:py-2">${client.phone}</td>
         <td class="px-2 py-1 sm:px-4 sm:py-2 flex gap-2">
           <button data-id="${client.id}" class="text-blue-600 hover:underline">Edit</button>
           <button data-id="${client.id}" class=" btn-delete text-red-600 hover:underline">Delete</button>
