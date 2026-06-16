@@ -45,11 +45,6 @@ export function openInvModal(invoice = null) {
     }
   }
 
-  // Close modal
-  export function closeInvModal() {
-    modal.classList.add("hidden");
-  }
-
   // Handle form submit
   if (form) {
     form.addEventListener("submit", (e) => {
@@ -112,4 +107,9 @@ export function openInvModal(invoice = null) {
       }
     });
   }
+}
+
+// Close modal
+export function closeInvModal() {
+  modal.classList.add("hidden");
 }

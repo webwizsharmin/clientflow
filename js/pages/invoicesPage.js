@@ -6,6 +6,7 @@ import {
 } from "../modules/invoices.js";
 import { loadInvoices, saveInvoices } from "../storage.js";
 import { getClientById } from "../modules/clients.js";
+import { openInvModal } from "../components/invoiceModal.js";
 
 export function renderInvoicesPage() {
   const content = document.getElementById("content");
@@ -161,5 +162,12 @@ export function renderInvoicesPage() {
       </td>
     </tr>
     `;
+  });
+
+  // wire up
+  const newInvBtn = document.getElementById("newInvBtn");
+
+  newInvBtn.addEventListener("click", () => {
+    openInvModal();
   });
 }
