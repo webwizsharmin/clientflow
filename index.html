@@ -283,6 +283,129 @@
       </div>
     </div>
 
+    <!-- Invoice Modal Overlay -->
+    <div
+      id="invoiceModal"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 backdrop-blur-sm p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="invoiceModalTitle"
+    >
+      <div
+        class="w-full sm:w-3/4 md:w-1/2 max-w-lg rounded-2xl bg-white shadow-2xl max-h-[90vh] flex flex-col animate-fadeIn"
+      >
+        <!-- Header -->
+        <div
+          class="flex items-center justify-between border-b border-slate-200 px-6 py-4"
+        >
+          <h2 id="invoiceModalTitle" class="text-xl font-bold text-slate-800">
+            Add or Edit Invoice
+          </h2>
+          <button
+            type="button"
+            id="closeInvoiceModal"
+            class="flex h-9 w-9 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 hover:text-slate-700"
+          >
+            <i class="bx bx-x text-xl"></i>
+          </button>
+        </div>
+
+        <!-- Body -->
+        <form id="invoiceForm" class="flex-1 overflow-y-auto p-6 space-y-6">
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <!-- Invoice ID -->
+            <div>
+              <label for="invoiceId" class="form-label">Invoice ID</label>
+              <input
+                type="text"
+                id="invoiceId"
+                name="invoiceId"
+                placeholder="INV-001"
+                class="form-input"
+                required
+              />
+            </div>
+
+            <!-- Client (dropdown) -->
+            <div>
+              <label for="invoiceClient" class="form-label">Client</label>
+              <select
+                id="invoiceClient"
+                name="invoiceClient"
+                class="form-input"
+                required
+              >
+                <option value="">Select Client</option>
+                <!-- Populate dynamically from clients list -->
+              </select>
+            </div>
+
+            <!-- Status -->
+            <div>
+              <label for="invoiceStatus" class="form-label">Status</label>
+              <select
+                id="invoiceStatus"
+                name="invoiceStatus"
+                class="form-input"
+              >
+                <option value="paid">Paid</option>
+                <option value="unpaid">Unpaid</option>
+                <option value="pending">Pending</option>
+              </select>
+            </div>
+
+            <!-- Issue Date -->
+            <div>
+              <label for="invoiceDate" class="form-label">Issue Date</label>
+              <input
+                type="date"
+                id="invoiceDate"
+                name="invoiceDate"
+                class="form-input"
+                required
+              />
+            </div>
+
+            <!-- Items -->
+            <div class="md:col-span-2">
+              <label for="invoiceItems" class="form-label">Items</label>
+              <textarea
+                id="invoiceItems"
+                name="invoiceItems"
+                placeholder="List items here..."
+                class="form-input"
+              ></textarea>
+            </div>
+
+            <!-- Amount -->
+            <div>
+              <label for="invoiceAmount" class="form-label">Amount</label>
+              <input
+                type="number"
+                id="invoiceAmount"
+                name="invoiceAmount"
+                placeholder="1000"
+                class="form-input"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div
+            class="flex flex-col-reverse gap-3 border-t border-slate-200 pt-6 sm:flex-row sm:justify-end"
+          >
+            <button type="button" id="cancelInvoiceModal" class="btn-secondary">
+              Cancel
+            </button>
+            <button type="submit" id="saveInvoiceModal" class="btn-primary">
+              Save Invoice
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <!-- Load Chart.js globally -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
