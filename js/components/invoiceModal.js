@@ -72,6 +72,13 @@ export function openInvModal(invoice = null) {
         invoiceData.clientPhone = client.phone;
       }
 
+      //   Sanitize user input
+      const errors = validateInvoice(invoiceData);
+      if (errors.length) {
+        alert(errors.join("\n"));
+        return;
+      }
+
       if (form.dataset.editId) {
         editInvoice(invoiceData.id, invoiceData);
       } else {
