@@ -6,6 +6,8 @@ import {
 } from "../modules/invoices.js";
 import { getClientById } from "../modules/clients.js";
 import { renderInvoicesPage } from "../pages/invoicesPage.js";
+import { loadClients, loadInvoices } from "../storage.js";
+import { validateInvoice } from "../data/validations.js";
 
 const modal = document.getElementById("invoiceModal");
 const form = document.getElementById("invoiceForm");
@@ -18,6 +20,19 @@ export function openInvModal(invoice = null) {
 
   const title = document.getElementById("invoiceModalTitle");
   const saveBtn = document.getElementById("saveInvoiceModal");
+  const clientSelect = document.getElementById("invoiceClient");
+
+  //   clear old options
+  clientSelect.innerHTML = '<option value="">Select Client</option>';
+
+  // Populate clients dynamically
+  const clients = loadClients();
+  clients.forEach((client) => {
+    const opt = document.createElement("option");
+    opt.value = client.id;
+    opt.textContent = client.name;
+    clientSelect.appendChild(opt);
+  });
 
   if (invoice) {
     title.textContent = "Edit Invoice";
@@ -97,7 +112,7 @@ export function openInvModal(invoice = null) {
   }
 
   // auto fill client number when selecting client
-  const clientSelect = document.getElementById("invoiceClient");
+  //   const clientSelect = document.getElementById("invoiceClient");
   if (clientSelect) {
     clientSelect.addEventListener("change", () => {
       const clientId = clientSelect.value;
