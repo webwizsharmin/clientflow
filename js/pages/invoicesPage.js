@@ -156,9 +156,9 @@ export function renderInvoicesPage() {
       <td class="px-2 py-1 sm:px-4 sm:py-2">$${invoice.amount}</td>
       <td class="hidden md:table-cell px-2 py-1 sm:px-4 sm:py-2">${invoice.issueDate}</td>
       <td class="px-2 py-1 sm:px-4 sm:py-2 flex gap-2">
-        <button data-id="${invoice.id}" class="btn-edit text-blue-600 hover:underline">Edit</button>
-        <button data-id="${invoice.id}" class="btn-delete text-red-600 hover:underline">Delete</button>
-        <button data-id="${invoice.id}" class="btn-view text-gray-600 hover:underline">View</button>
+        <button data-id="${invoice.id}" class="btn-edit-inv text-blue-600 hover:underline">Edit</button>
+        <button data-id="${invoice.id}" class="btn-delete-inv text-red-600 hover:underline">Delete</button>
+        <button data-id="${invoice.id}" class="btn-view-inv text-gray-600 hover:underline">View</button>
       </td>
     </tr>
     `;
@@ -173,7 +173,7 @@ export function renderInvoicesPage() {
 }
 
 document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("btn-delete")) {
+  if (e.target.classList.contains("btn-delete-inv")) {
     const id = Number(e.target.dataset.id);
     deleteInvoice(id);
     renderInvoicesPage();
