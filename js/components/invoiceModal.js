@@ -42,7 +42,7 @@ export function openInvModal(invoice = null) {
     form.invoiceId.value = invoice.id || "";
     form.invoiceClient.value = invoice.clientId || "";
     form.invoiceStatus.value = invoice.status || "";
-    form.invoiceDate.value = invoice.issuDate || "";
+    form.invoiceDate.value = invoice.issueDate || "";
     form.invoiceItems.value = invoice.items?.join(",   ") || "";
     form.invoiceAmount.value = invoice.amount || "";
 

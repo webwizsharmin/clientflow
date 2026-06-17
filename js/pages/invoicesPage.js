@@ -171,3 +171,11 @@ export function renderInvoicesPage() {
     openInvModal();
   });
 }
+
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("btn-delete")) {
+    const id = Number(e.target.dataset.id);
+    deleteInvoice(id);
+    renderInvoicesPage();
+  }
+});
