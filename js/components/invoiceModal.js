@@ -128,3 +128,34 @@ export function openInvModal(invoice = null) {
 export function closeInvModal() {
   modal.classList.add("hidden");
 }
+
+// view client modal
+export function openViewInvModal(invoice) {
+  const modal = document.getElementById("viewInvModal");
+  const content = document.getElementById("viewInvContent");
+
+  content.innerHTML = `
+  <p><strong>Id:</strong> ${invoice.id}</p>
+  <p><strong>Name:</strong> ${invoice.name}</p>
+  <p><strong>Email:</strong> ${invoice.email}</p>
+  <p><strong>Phone:</strong> ${invoice.phone}</p>
+  <p><strong>Address:</strong> ${invoice.address || "-"}</p>
+  <p><strong>Status:</strong> ${invoice.status}</p>
+  <p><strong>Engagement:</strong> ${invoice.engagement}</p>
+
+  `;
+  modal.classList.remove("hidden");
+}
+
+export function closeViewInvModal() {
+  const modal = document.getElementById("viewInvModal");
+  if (modal) {
+    modal.classList.add("hidden");
+  }
+}
+
+// Attach listener safely
+const closeInvBtn = document.getElementById("closeViewInvModal");
+if (closeInvBtn) {
+  closeInvBtn.addEventListener("click", closeViewInvModal);
+}

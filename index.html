@@ -270,7 +270,7 @@
     <!-- Client View modal -->
     <div
       id="viewClientModal"
-      class="hidden fixed inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm"
+      class="hidden flex fixed inset-0 items-center justify-center bg-black/40 backdrop-blur-sm"
     >
       <div class="bg-white p-6 rounded shadow-lg w-96">
         <h2 id="viewClientTitle" class="text-xl font-bold mb-4">
@@ -390,6 +390,20 @@
             </button>
           </div>
         </form>
+      </div>
+    </div>
+
+    <!-- Invoice view modal -->
+    <div
+      id="viewInvModal"
+      class="hidden flex fixed inset-0 items-center justify-center bg-black/40 backdrop-blur-sm"
+    >
+      <div class="bg-white p-6 rounded shadow-lg w-96">
+        <h2 id="viewInvTitle" class="text-xl font-bold mb-4">
+          Invoice Details
+        </h2>
+        <div id="viewInvContent" class="space-y-2"></div>
+        <button id="closeViewInvModal" class="btn-secondary mt-4">Close</button>
       </div>
     </div>
 

@@ -6,7 +6,7 @@ import {
 } from "../modules/invoices.js";
 import { loadInvoices, saveInvoices } from "../storage.js";
 import { getClientById } from "../modules/clients.js";
-import { openInvModal } from "../components/invoiceModal.js";
+import { openInvModal, openViewInvModal } from "../components/invoiceModal.js";
 
 export function renderInvoicesPage() {
   const content = document.getElementById("content");
@@ -177,5 +177,15 @@ document.addEventListener("click", (e) => {
     const id = Number(e.target.dataset.id);
     deleteInvoice(id);
     renderInvoicesPage();
+  }
+});
+
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("btn-view-inv")) {
+    const id = Number(e.target.dataset.id);
+    const invoice = getInvoiceById(id);
+    if (invoice) {
+      openViewInvModal(invoice);
+    }
   }
 });
