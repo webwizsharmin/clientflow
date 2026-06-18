@@ -189,3 +189,11 @@ document.addEventListener("click", (e) => {
     }
   }
 });
+
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("btn-edit-inv")) {
+    const id = Number(e.target.dataset.id);
+    const invoice = getInvoiceById(id);
+    openInvModal(invoice);
+  }
+});
