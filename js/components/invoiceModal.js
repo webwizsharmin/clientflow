@@ -39,7 +39,7 @@ export function openInvModal(invoice = null) {
     saveBtn.textContent = "Update Invoice";
     form.dataset.editId = invoice.id;
 
-    form.invoiceId.value = invoice.id || "";
+    // form.invoiceId.value = invoice.id || "";
     form.invoiceClient.value = invoice.clientId || "";
     form.invoiceStatus.value = invoice.status || "";
     form.invoiceDate.value = invoice.issueDate || "";
@@ -52,53 +52,12 @@ export function openInvModal(invoice = null) {
       if (client) {
         form.dataset.clientPhone = client.phone || "";
       }
-    } else {
-      title.textContent = "Add Invoice";
-      saveBtn.textContent = "Save Invoice";
-      delete form.dataset.editId;
-      form.reset();
     }
-  }
-
-  // Handle form submit
-  if (form) {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const invoiceData = {
-        id: form.dataset.editId ? Number(form.dataset.editId) : Date.now(),
-        clientId: Number(form.invoiceClient.value),
-        status: form.invoiceStatus.value,
-        issueDate: form.invoiceDate.value,
-        items: form.invoiceItems.value
-          ? form.invoiceItems.value.split(",").map((i) => i.trim())
-          : [],
-        amount: Number(form.invoiceAmount.value),
-      };
-      // attach client info for display
-      const client = getClientById(invoiceData.clientId);
-      if (client) {
-        invoiceData.clientName = client.name;
-        invoiceData.clientPhone = client.phone;
-      }
-
-      //   Sanitize user input
-      const errors = validateInvoice(invoiceData);
-      if (errors.length) {
-        alert(errors.join("\n"));
-        return;
-      }
-
-      if (form.dataset.editId) {
-        editInvoice(invoiceData.id, invoiceData);
-      } else {
-        addInvoice(invoiceData);
-      }
-
-      closeInvModal();
-      form.reset();
-      renderInvoicesPage();
-    });
+  } else {
+    title.textContent = "Add Invoice";
+    saveBtn.textContent = "Save Invoice";
+    delete form.dataset.editId;
+    form.reset();
   }
 
   //   close actions
@@ -122,6 +81,49 @@ export function openInvModal(invoice = null) {
       }
     });
   }
+}
+
+// Handle form submit
+if (form) {
+  form.addEventListener("submit", handleInvSumit);
+}
+
+function handleInvSumit(e) {
+  e.preventDefault();
+
+  const invoiceData = {
+    id: form.dataset.editId ? Number(form.dataset.editId) : Date.now(),
+    clientId: Number(form.invoiceClient.value),
+    status: form.invoiceStatus.value,
+    issueDate: form.invoiceDate.value,
+    items: form.invoiceItems.value
+      ? form.invoiceItems.value.split(",").map((i) => i.trim())
+      : [],
+    amount: Number(form.invoiceAmount.value),
+  };
+  // attach client info for display
+  const client = getClientById(invoiceData.clientId);
+  if (client) {
+    invoiceData.clientName = client.name;
+    invoiceData.clientPhone = client.phone;
+  }
+
+  //   Sanitize user input
+  const errors = validateInvoice(invoiceData);
+  if (errors.length) {
+    alert(errors.join("\n"));
+    return;
+  }
+
+  if (form.dataset.editId) {
+    editInvoice(invoiceData.id, invoiceData);
+  } else {
+    addInvoice(invoiceData);
+  }
+
+  closeInvModal();
+  form.reset();
+  renderInvoicesPage();
 }
 
 // Close modal
