@@ -23,6 +23,7 @@ import {
 import { initClientModal } from "./ui/modal.js";
 
 import { openClientModal, closeClientModal } from "./components/clientModal.js";
+import { openInvModal, closeInvModal } from "./components/invoiceModal.js";
 
 import { renderClientsPage } from "./pages/clientsPage.js";
 import { renderDashboardPage } from "./pages/dashboardPage.js";

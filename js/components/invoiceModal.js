@@ -67,7 +67,7 @@ export function openInvModal(invoice = null) {
 
       const invoiceData = {
         id: form.dataset.editId ? Number(form.dataset.editId) : Date.now(),
-        clientId: form.invoiceClient.value,
+        clientId: Number(form.invoiceClient.value),
         status: form.invoiceStatus.value,
         issueDate: form.invoiceDate.value,
         items: form.invoiceItems.value
@@ -131,17 +131,22 @@ export function closeInvModal() {
 
 // view client modal
 export function openViewInvModal(invoice) {
+  console.log("Invoice passed to view modal:", invoice);
+
   const modal = document.getElementById("viewInvModal");
   const content = document.getElementById("viewInvContent");
 
+  const client = getClientById(invoice.clientId);
+  console.log("Resolved client:", client);
+
   content.innerHTML = `
   <p><strong>Id:</strong> ${invoice.id}</p>
-  <p><strong>Name:</strong> ${invoice.name}</p>
-  <p><strong>Email:</strong> ${invoice.email}</p>
-  <p><strong>Phone:</strong> ${invoice.phone}</p>
-  <p><strong>Address:</strong> ${invoice.address || "-"}</p>
+  <p><strong>Name:</strong> ${client?.name || "-"}</p>
+  <p><strong>Phone:</strong> ${client?.phone || "-"}</p>
+  <p><strong>Items:</strong> ${invoice.items}</p>
+  <p><strong>Amount:</strong> ${invoice.amount || "-"}</p>
   <p><strong>Status:</strong> ${invoice.status}</p>
-  <p><strong>Engagement:</strong> ${invoice.engagement}</p>
+  <p><strong>Issue date:</strong> ${invoice.issueDate}</p>
 
   `;
   modal.classList.remove("hidden");
