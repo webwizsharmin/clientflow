@@ -28,6 +28,7 @@ import { openInvModal, closeInvModal } from "./components/invoiceModal.js";
 import { renderClientsPage } from "./pages/clientsPage.js";
 import { renderDashboardPage } from "./pages/dashboardPage.js";
 import { renderInvoicesPage } from "./pages/invoicesPage.js";
+import { renderKanban } from "./pages/tasksPage.js";
 
 let clients = loadClients();
 
@@ -101,6 +102,10 @@ document.querySelectorAll(".sidebar-link").forEach((link) => {
         break;
       case "invoices":
         renderInvoicesPage();
+        break;
+
+      case "tasks":
+        renderKanban();
         break;
       default:
         document.getElementById("content").innerHTML = `

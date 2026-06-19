@@ -100,7 +100,7 @@ export function closeViewTaskModal() {
   if (modal) modal.classList.add("hidden");
 }
 
-const closeBtn = document.getElementById("closeViewTaskModal");
-if (closeBtn) {
-  closeBtn.addEventListener("click", closeViewTaskModal);
+const closeViewBtn = document.getElementById("closeViewTaskModal");
+if (closeViewBtn) {
+  closeViewBtn.addEventListener("click", closeViewTaskModal);
 }
