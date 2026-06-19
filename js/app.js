@@ -30,6 +30,7 @@ import { renderDashboardPage } from "./pages/dashboardPage.js";
 import { renderInvoicesPage } from "./pages/invoicesPage.js";
 import { renderKanban } from "./pages/tasksPage.js";
 import { renderSettingsPage } from "./pages/settingsPage.js";
+import { renderHelpsPage } from "./pages/help&support.js";
 
 let clients = loadClients();
 
@@ -110,6 +111,10 @@ document.querySelectorAll(".sidebar-link").forEach((link) => {
         break;
       case "tasks":
         renderKanban();
+        break;
+
+      case "help":
+        renderHelpsPage();
         break;
       default:
         document.getElementById("content").innerHTML = `
