@@ -1,4 +1,4 @@
-import { addTask, editTask } from "../modules/tasks.js";
+import { addTask, editTask, deleteTask, getTask } from "../modules/tasks.js";
 import { renderKanban } from "../pages/tasksPage.js";
 
 const modal = document.getElementById("taskModal");
@@ -68,3 +68,39 @@ if (form) {
 
 if (closeBtn) closeBtn.addEventListener("click", closeTaskModal);
 if (cancelBtn) cancelBtn.addEventListener("click", closeTaskModal);
+
+// view task modal
+export function openViewTaskModal(taskId) {
+  const task = getTask(taskId);
+  const modal = document.getElementById("viewTaskModal");
+  const content = document.getElementById("viewTaskContent");
+
+  content.innerHTML = `
+    <p><strong> Title: </strong> ${task.title} </p>
+    <p><strong>Description:</strong> ${task.description || "-"}</p>
+    <p><strong>Status:</strong> ${task.status}</p>
+    <p><strong>Priority:</strong> ${task.priority}</p>
+    <p><strong> Due Date: </strong> ${task.dueDate || "-"}</p>
+    `;
+
+  modal.classList.remove("hidden");
+
+  const deleteBtn = document.getElementById("deleteTaskBtn");
+  if (deleteBtn) {
+    deleteBtn.onclick = () => {
+      deleteTask(task.id);
+      modal.classList.add("hidden");
+      renderKanban();
+    };
+  }
+}
+
+export function closeViewTaskModal() {
+  const modal = document.getElementById("viewTaskModal");
+  if (modal) modal.classList.add("hidden");
+}
+
+const closeBtn = document.getElementById("closeViewTaskModal");
+if (closeBtn) {
+  closeBtn.addEventListener("click", closeViewTaskModal);
+}
