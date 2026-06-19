@@ -29,6 +29,7 @@ import { renderClientsPage } from "./pages/clientsPage.js";
 import { renderDashboardPage } from "./pages/dashboardPage.js";
 import { renderInvoicesPage } from "./pages/invoicesPage.js";
 import { renderKanban } from "./pages/tasksPage.js";
+import { renderSettingsPage } from "./pages/settingsPage.js";
 
 let clients = loadClients();
 
@@ -104,6 +105,9 @@ document.querySelectorAll(".sidebar-link").forEach((link) => {
         renderInvoicesPage();
         break;
 
+      case "setting":
+        renderSettingsPage();
+        break;
       case "tasks":
         renderKanban();
         break;
