@@ -428,6 +428,107 @@
       </div>
     </div>
 
+    <!-- Task Add/Edit Modal -->
+    <div
+      id="taskModal"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 backdrop-blur-sm p-4"
+    >
+      <div
+        class="w-full sm:w-3/4 md:w-1/2 max-w-lg rounded-2xl bg-white shadow-2xl max-h-[90vh] flex flex-col animate-fadeIn"
+      >
+        <!-- Header -->
+        <div
+          class="flex items-center justify-between border-b border-slate-200 px-6 py-4"
+        >
+          <div>
+            <h2 id="taskModalTitle" class="text-xl font-bold text-slate-800">
+              Add Task
+            </h2>
+            <p class="mt-1 text-sm text-slate-500">
+              Fill in the details to add or edit a task.
+            </p>
+          </div>
+          <button
+            type="button"
+            id="closeTaskModal"
+            class="flex h-9 w-9 items-center justify-center rounded-full text-slate-500 transition hover:bg-slate-100 hover:text-slate-700"
+          >
+            <i class="bx bx-x text-xl"></i>
+          </button>
+        </div>
+
+        <!-- Form -->
+        <form id="taskForm" class="flex-1 overflow-y-auto p-6 space-y-6">
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <!-- Title -->
+            <div>
+              <label for="taskTitle" class="form-label">Title</label>
+              <input
+                type="text"
+                id="taskTitle"
+                name="taskTitle"
+                class="form-input"
+                required
+              />
+            </div>
+
+            <!-- Status -->
+            <div>
+              <label for="taskStatus" class="form-label">Status</label>
+              <select id="taskStatus" name="taskStatus" class="form-input">
+                <option value="todo">To Do</option>
+                <option value="in-progress">In Progress</option>
+                <option value="done">Done</option>
+              </select>
+            </div>
+
+            <!-- Priority -->
+            <div>
+              <label for="taskPriority" class="form-label">Priority</label>
+              <select id="taskPriority" name="taskPriority" class="form-input">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+
+            <!-- Due Date -->
+            <div>
+              <label for="taskDueDate" class="form-label">Due Date</label>
+              <input
+                type="date"
+                id="taskDueDate"
+                name="taskDueDate"
+                class="form-input"
+              />
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div>
+            <label for="taskDescription" class="form-label">Description</label>
+            <textarea
+              id="taskDescription"
+              name="taskDescription"
+              rows="3"
+              class="form-input"
+            ></textarea>
+          </div>
+
+          <!-- Footer Buttons -->
+          <div
+            class="flex flex-col-reverse gap-3 border-t border-slate-200 pt-6 sm:flex-row sm:justify-end"
+          >
+            <button type="button" id="cancelTaskModal" class="btn-secondary">
+              Cancel
+            </button>
+            <button type="submit" id="saveTaskModal" class="btn-primary">
+              Save Task
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
     <!-- Load Chart.js globally -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
