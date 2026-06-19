@@ -31,6 +31,7 @@ import { renderInvoicesPage } from "./pages/invoicesPage.js";
 import { renderKanban } from "./pages/tasksPage.js";
 import { renderSettingsPage } from "./pages/settingsPage.js";
 import { renderHelpsPage } from "./pages/help&support.js";
+import { renderleadsPage } from "./pages/leadsPage.js";
 
 let clients = loadClients();
 
@@ -105,6 +106,9 @@ document.querySelectorAll(".sidebar-link").forEach((link) => {
       case "invoices":
         renderInvoicesPage();
         break;
+      case "leads":
+        renderleadsPage();
+        break;
 
       case "setting":
         renderSettingsPage();
@@ -117,9 +121,7 @@ document.querySelectorAll(".sidebar-link").forEach((link) => {
         renderHelpsPage();
         break;
       default:
-        document.getElementById("content").innerHTML = `
-        <h1 class="text-2xl font-bold text-slate-800 mb-2"> Page not found!</h1>
-        `;
+        renderDashboardPage();
     }
   });
 });
