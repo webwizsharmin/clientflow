@@ -293,8 +293,8 @@
   .max-h-\[90vh\] {
     max-height: 90vh;
   }
-  .min-h-100 {
-    min-height: calc(var(--spacing) * 100);
+  .min-h-75 {
+    min-height: calc(var(--spacing) * 75);
   }
   .w-9 {
     width: calc(var(--spacing) * 9);
