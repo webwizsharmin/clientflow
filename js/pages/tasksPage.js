@@ -13,15 +13,15 @@ export function renderKanban() {
     <div id="kanbanBoard" class="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
       <div class="kanban-column bg-gray-100 p-4 rounded-lg shadow">
         <h3 class="text-lg font-bold mb-3">To Do</h3>
-        <div class="kanban-list min-h-[200px]" data-status="todo"></div>
+        <div class="kanban-list min-h-100" data-status="todo"></div>
       </div>
       <div class="kanban-column bg-gray-100 p-4 rounded-lg shadow">
         <h3 class="text-lg font-bold mb-3">In Progress</h3>
-        <div class="kanban-list min-h-[200px]" data-status="in-progress"></div>
+        <div class="kanban-list min-h-100" data-status="in-progress"></div>
       </div>
       <div class="kanban-column bg-gray-100 p-4 rounded-lg shadow">
         <h3 class="text-lg font-bold mb-3">Done</h3>
-        <div class="kanban-list min-h-[200px]" data-status="done"></div>
+        <div class="kanban-list min-h-100" data-status="done"></div>
       </div>
     </div>
 
