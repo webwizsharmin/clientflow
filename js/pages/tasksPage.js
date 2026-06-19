@@ -1,5 +1,5 @@
 import { loadTasks } from "../storage.js";
-import { getTask, editTask, deleteTask, addTask } from "../modules/tasks.js";
+import { getTask, editTask } from "../modules/tasks.js";
 import { openTaskModal, openViewTaskModal } from "../components/taskModal.js";
 
 export function renderKanban() {
@@ -42,11 +42,34 @@ export function renderKanban() {
   // Render tasks into columns
   tasks.forEach((task) => {
     const card = document.createElement("div");
-    card.className = "kanban-card p-2 bg-white shadow mb-2 cursor-move rounded";
-    card.textContent = task.title;
+    card.className =
+      "kanban-card group p-4 bg-white rounded-lg shadow hover:shadow-md transition cursor-move mb-2 flex flex-col gap-2";
+    // card.textContent = task.title;
     card.draggable = true;
     card.dataset.id = task.id;
 
+    // Priority badge color
+    let priorityClass = "";
+    if (task.priority === "low") priorityClass = "bg-green-100 text-green-700";
+    if (task.priority === "medium")
+      priorityClass = "bg-yellow-100 text-yellow-700";
+    if (task.priority === "high") priorityClass = "bg-red-100 text-red-700";
+
+    // Card content
+    card.innerHTML = `
+  <div>
+    <h4 class="font-semibold text-slate-800 group-hover:text-blue-600">${task.title}</h4>
+    <p class="text-sm text-slate-500">${task.description || ""}</p>
+    <span class="inline-block mt-2 px-2 py-1 text-xs font-semibold rounded ${priorityClass}">
+      ${task.priority}
+    </span>
+  </div>
+  <div class="flex flex-col gap-2">
+    <button class="edit-btn px-2 py-1 text-xs bg-blue-600 text-white rounded hover:bg-blue-700 transition" data-id="${task.id}">
+      <i class='bx bx-edit'></i>
+    </button>
+  </div>
+`;
     // Click to view details
     card.addEventListener("click", () => openViewTaskModal(task.id));
 
@@ -54,6 +77,16 @@ export function renderKanban() {
       `.kanban-list[data-status="${task.status}"]`,
     );
     if (column) column.appendChild(card);
+  });
+
+  // Attach edit button listeners
+  document.querySelectorAll(".edit-btn").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation(); // prevent triggering view modal
+      const id = Number(e.target.dataset.id);
+      const task = getTask(id);
+      openTaskModal(task); // open modal pre-filled
+    });
   });
 
   // Wire up Add Task button
