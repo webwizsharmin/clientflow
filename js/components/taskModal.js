@@ -104,3 +104,8 @@ const closeViewBtn = document.getElementById("closeViewTaskModal");
 if (closeViewBtn) {
   closeViewBtn.addEventListener("click", closeViewTaskModal);
 }
+
+const closeViewTaskBtn = document.getElementById("closeViewTaskModalFooter");
+if (closeViewTaskBtn) {
+  closeViewTaskBtn.addEventListener("click", closeViewTaskModal);
+}
