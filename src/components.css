@@ -63,3 +63,9 @@
 .card-value {
   @apply text-2xl font-bold text-slate-800 dark:text-slate-100;
 }
+
+html {
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}

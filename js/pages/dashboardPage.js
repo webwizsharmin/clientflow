@@ -10,8 +10,8 @@ export function renderDashboardPage() {
 
   // Inject dashboard layout
   content.innerHTML = `
-    <h1 class="text-2xl font-bold text-slate-800 mb-2">Dashboard</h1>
-    <p class="text-slate-500 mb-6">Welcome back, John Doe. Here's your business overview.</p>
+    <h1 class="text-2xl font-bold text-slate-800 dark:text-slate-100 mb-2">Dashboard</h1>
+    <p class="text-slate-500 dark:text-slate-400 mb-6">Welcome back, John Doe. Here's your business overview.</p>
     
     <!-- Metrics Grid -->
     <!-- Metrics Grid -->
@@ -20,10 +20,10 @@ export function renderDashboardPage() {
       <div class="card">
         <div class="card-header">
           <div>
-            <p class="card-title">Total Revenue</p>
-            <h3 class="card-value">$54,985</h3>
+            <p class="card-title text-slate-500 dark:text-slate-400">Total Revenue</p>
+            <h3 class="card-value text-slate-800 dark:text-slate-100">$54,985</h3>
           </div>
-          <button class="text-slate-400 hover:text-slate-600">
+          <button class="text-slate-400 dark:text-slate-300 hover:text-slate-600 dark:hover:text-slate-100">
             <i class="bx bx-dollar text-xl"></i>
           </button>
         </div>
@@ -36,10 +36,10 @@ export function renderDashboardPage() {
       <div class="card">
         <div class="card-header">
           <div>
-            <p class="card-title">Active Leads</p>
-            <h3 class="card-value">1,985</h3>
+            <p class="card-title text-slate-500 dark:text-slate-400">Active Leads</p>
+            <h3 class="card-value text-slate-800 dark:text-slate-100">1,985</h3>
           </div>
-          <button class="text-slate-400 hover:text-slate-600">
+          <button class="text-slate-400 dark:text-slate-300 hover:text-slate-600 dark:hover:text-slate-100">
             <i class="bx bxs-user-detail text-xl"></i>
           </button>
         </div>
@@ -52,10 +52,10 @@ export function renderDashboardPage() {
       <div class="card">
         <div class="card-header">
           <div>
-            <p class="card-title">Unpaid Invoices</p>
-            <h3 class="card-value">$5,485</h3>
+            <p class="card-title text-slate-500 dark:text-slate-400">Unpaid Invoices</p>
+            <h3 class="card-value text-slate-800 dark:text-slate-100">$5,485</h3>
           </div>
-          <button class="text-slate-400 hover:text-slate-600">
+          <button class="text-slate-400 dark:text-slate-300 hover:text-slate-600 dark:hover:text-slate-100">
             <i class="bx bx-spreadsheet text-xl"></i>
           </button>
         </div>
@@ -70,10 +70,10 @@ export function renderDashboardPage() {
       <div class="card">
         <div class="card-header">
           <div>
-            <p class="card-title">Monthly Revenue</p>
-            <h3 class="card-value">$5,850</h3>
+            <p class="card-title text-slate-500 dark:text-slate-400">Monthly Revenue</p>
+            <h3 class="card-value text-slate-800 dark:text-slate-100">$5,850</h3>
           </div>
-          <button class="text-slate-400 hover:text-slate-600">
+          <button class="text-slate-400 dark:text-slate-300 hover:text-slate-600 dark:hover:text-slate-100">
             <i class="bx bx-line-chart text-xl"></i>
           </button>
         </div>
@@ -83,31 +83,31 @@ export function renderDashboardPage() {
       </div>
 
       <div class="card">
-        <h3 class="text-lg font-bold text-slate-700 mb-4">Recent Activity</h3>
+        <h3 class="ttext-lg font-bold text-slate-700 dark:text-slate-100 mb-4">Recent Activity</h3>
         <div class="space-y-4">
           <div>
-            <h4 class="text-sm font-semibold text-slate-600">New Client Added</h4>
-            <p class="text-slate-500 text-sm">
+            <h4 class="text-sm font-semibold text-slate-600 dark:text-slate-300">New Client Added</h4>
+            <p class="text-slate-500 dark:text-slate-400 text-sm">
               Acme Corp was added to your client list by John Doe on May 22, 2026.
             </p>
           </div>
           <div>
-            <h4 class="text-sm font-semibold text-slate-600">Invoice Sent</h4>
-            <p class="text-slate-500 text-sm">
+            <h4 class="text-sm font-semibold text-slate-600 dark:text-slate-300">Invoice Sent</h4>
+            <p class="text-slate-500 dark:text-slate-400 text-sm">
               Invoice #INV‑2045 for $3,200 was sent to Bright Solutions on May 21, 2026.
             </p>
           </div>
           <div>
-            <h4 class="text-sm font-semibold text-slate-600">Lead Status Updated</h4>
-            <p class="text-slate-500 text-sm">
+            <h4 class="text-sm font-semibold text-slate-600 dark:text-slate-300">Lead Status Updated</h4>
+            <p class="text-slate-500 dark:text-slate-400 text-sm">
               Lead “Sarah Johnson” moved from
               <span class="font-semibold text-green-600">Prospect</span> to
               <span class="font-semibold text-blue-600">Active</span>.
             </p>
           </div>
           <div>
-            <h4 class="text-sm font-semibold text-slate-600">Task Completed</h4>
-            <p class="text-slate-500 text-sm">
+            <h4 class="text-sm font-semibold text-slate-600 dark:text-slate-300">Task Completed</h4>
+            <p class="text-slate-500 dark:text-slate-400 text-sm">
               Follow‑up call with GlobalTech was marked complete by Jane Smith on May 20, 2026.
             </p>
           </div>

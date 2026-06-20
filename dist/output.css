@@ -923,6 +923,15 @@
       }
     }
   }
+  .dark\:hover\:text-slate-100 {
+    @media (prefers-color-scheme: dark) {
+      &:hover {
+        @media (hover: hover) {
+          color: var(--color-slate-100);
+        }
+      }
+    }
+  }
 }
 .form-label {
   margin-bottom: calc(var(--spacing) * 2);
@@ -1222,6 +1231,9 @@
   @media (prefers-color-scheme: dark) {
     color: var(--color-slate-100);
   }
+}
+html {
+  transition: background-color 0.3s, color 0.3s;
 }
 @property --tw-space-y-reverse {
   syntax: "*";
