@@ -17,17 +17,17 @@ export function renderClientsPage() {
   // --- Inject layout ---
   content.innerHTML = `
     <!-- Page Header -->
-    <h1 class="text-2xl font-bold text-slate-800 mb-2">Clients</h1>
-    <p class="text-slate-500 mb-6">Manage your client records, view details, and track engagement.</p>
+    <h1 class="text-2xl font-bold text-slate-800 dark:text-slate-100 mb-2">Clients</h1>
+    <p class="text-slate-500 dark:text-slate-400 mb-6">Manage your client records, view details, and track engagement.</p>
 
     <!-- KPI Cards -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
       <!-- Avg. Client Value -->
-      <div class="card p-4 rounded-lg shadow bg-white flex flex-col justify-between">
+      <div class="card p-4 flex flex-col justify-between">
         <div class="flex items-center justify-between">
           <div>
-            <p class="text-lg font-medium text-slate-600">Total Clients </p>
-            <h3 class="text-3xl font-bold text-slate-800">153</h3>
+            <p class="text-lg font-medium text-slate-600 dark:text-slate-300">Total Clients </p>
+            <h3 class="text-3xl font-bold text-slate-800 dark:text-slate-100">153</h3>
             <p class="text-sm text-green-600 mt-1">
             <i class='bx bx-trending-up text-green-600'></i>
             + 7.6% vs last month</p>
@@ -39,11 +39,11 @@ export function renderClientsPage() {
       </div>
 
       <!-- Retention Rate -->
-      <div class="card p-4 rounded-lg shadow bg-white flex flex-col justify-between">
+      <div class="card p-4 flex flex-col justify-between">
         <div class="flex items-center justify-between">
           <div>
-            <p class="text-lg font-medium text-slate-600">Retention Rate</p>
-            <h3 class="text-3xl font-bold text-slate-800">56.8%</h3>
+            <p class="text-lg font-medium text-slate-600 dark:text-slate-300">Retention Rate</p>
+            <h3 class="text-3xl font-bold text-slate-800 dark:text-slate-100">56.8%</h3>
             <p class="text-sm text-blue-600 mt-1">
             <i class="bx bx-refresh text-blue-600"></i>+4.9% vs last month</p>
           </div>
@@ -54,11 +54,11 @@ export function renderClientsPage() {
       </div>
 
       <!-- New This Month -->
-      <div class="card p-4 rounded-lg shadow bg-white flex flex-col justify-between">
+      <div class="card p-4 flex flex-col justify-between">
         <div class="flex items-center justify-between">
           <div>
-            <p class="text-lg font-medium text-slate-600">New This Month</p>
-            <h3 class="text-3xl font-bold text-slate-800">34</h3>
+            <p class="text-lg font-medium text-slate-600 dark:text-slate-300">New This Month</p>
+            <h3 class="text-3xl font-bold text-slate-800 dark:text-slate-100">34</h3>
             <p class="text-sm text-purple-600 mt-1">
             <i class="bx bx-user-plus  text-purple-600"></i> 13 new clients added</p>
           </div>
@@ -69,12 +69,12 @@ export function renderClientsPage() {
       </div>
 
       <!-- Avg. Engagement -->
-      <div class="card p-4 rounded-lg shadow bg-white flex flex-col justify-between">
+      <div class="card p-4 flex flex-col justify-between">
         <div class="flex items-center justify-between">
           <div>
-            <p class="text-lg font-medium text-slate-600">Avg. Engagement</p>
-            <h3 class="text-xl font-bold text-slate-800">6.2/10</h3>
-            <p class="text-xs text-orange-600 mt-1">
+            <p class="text-lg font-medium text-slate-600 dark:text-slate-300">Avg. Engagement</p>
+            <h3 class="text-3xl font-bold text-slate-800 dark:text-slate-100">6.2/10</h3>
+            <p class="text-sm text-orange-600 mt-1">
             <i class="bx bx-trending-down text-orange-600"></i> -0.4% vs last month</p>
           </div>
           <div class="bg-orange-100 p-3 rounded-full">
@@ -85,7 +85,7 @@ export function renderClientsPage() {
     </div>
 
  <!-- Clients Table -->
-<div class="p-6 bg-white rounded-lg shadow">
+<div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow">
   <!-- Filters -->
   <div class="flex flex-wrap gap-4 mb-4">
     <!-- Search -->
@@ -95,13 +95,13 @@ export function renderClientsPage() {
       placeholder="Search clients..." 
       class="w-40 border rounded px-3 py-2 text-sm"
     />
-    <select id="statusFilter" class="border rounded px-3 py-2 text-sm">
+    <select id="statusFilter" class="border dark:bg-gray-800 rounded px-3 py-2 text-sm">
       <option value="">All Status</option>
       <option value="Active">Active</option>
       <option value="Inactive">Inactive</option>
       <option value="Pending">Pending</option>
     </select>
-    <select id="engagementFilter" class="border rounded px-3 py-2 text-sm">
+    <select id="engagementFilter" class="border dark:bg-gray-800 rounded px-3 py-2 text-sm">
       <option value="">All Engagement</option>
       <option value="High">High</option>
       <option value="Medium">Medium</option>
@@ -113,7 +113,7 @@ export function renderClientsPage() {
   <div class="overflow-x-auto">
     <table class="min-w-full border-collapse">
       <thead>
-        <tr class="bg-gray-50 text-left text-xs sm:text-sm font-semibold text-gray-700">
+        <tr class="bg-gray-50 dark:bg-gray-700 text-left text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-200">
           <th class="px-2 py-1 sm:px-4 sm:py-2">ID</th>
           <th class="px-2 py-1 sm:px-4 sm:py-2">Client</th>
           <th class="px-2 py-1 sm:px-4 sm:py-2">Email</th>
@@ -136,7 +136,9 @@ export function renderClientsPage() {
   tbody.innerHTML = "";
   clients.forEach((client) => {
     tbody.innerHTML += `
-      <tr class="border-b hover:bg-gray-100 text-xs sm:text-sm">
+      <tr class="border-b border-gray-200 dark:border-gray-700 
+               hover:bg-gray-50 dark:hover:bg-gray-700 
+               text-xs sm:text-sm text-gray-700 dark:text-gray-200">
         <td class="px-2 py-1 sm:px-4 sm:py-2">${client.id}</td>
         <td class="px-2 py-1 sm:px-4 sm:py-2">${client.name}</td>
         <td class="px-2 py-1 sm:px-4 sm:py-2">${client.email}</td>
@@ -149,9 +151,9 @@ export function renderClientsPage() {
         ${client.engagement} </span></td>
         <td class="hidden md:table-cell px-2 py-1 sm:px-4 sm:py-2">${client.phone}</td>
         <td class="px-2 py-1 sm:px-4 sm:py-2 flex gap-2">
-          <button data-id="${client.id}" class=" btn-edit text-blue-600 hover:underline">Edit</button>
-          <button data-id="${client.id}" class=" btn-delete text-red-600 hover:underline">Delete</button>
-          <button data-id="${client.id}" class=" btn-view text-gray-600 hover:underline">View</button>
+          <button data-id="${client.id}" class=" btn-edit text-blue-600 dark:text-blue-400 hover:underline">Edit</button>
+          <button data-id="${client.id}" class=" btn-delete text-red-600 dark:text-red-400 hover:underline">Delete</button>
+          <button data-id="${client.id}" class=" btn-view text-gray-600 dark:text-gray-300 hover:underline">View</button>
         </td>
       </tr>
     `;
