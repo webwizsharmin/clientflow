@@ -32,6 +32,7 @@ import { renderKanban } from "./pages/tasksPage.js";
 import { renderSettingsPage } from "./pages/settingsPage.js";
 import { renderHelpsPage } from "./pages/help&support.js";
 import { renderleadsPage } from "./pages/leadsPage.js";
+import { initTopbar } from "./ui/topbar.js";
 
 let clients = loadClients();
 
@@ -128,3 +129,7 @@ document.querySelectorAll(".sidebar-link").forEach((link) => {
 
 // Render Dashboard by default on page load
 renderDashboardPage();
+
+document.addEventListener("DOMContentLoaded", () => {
+  initTopbar();
+});

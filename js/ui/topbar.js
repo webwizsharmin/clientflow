@@ -3,6 +3,8 @@ export function initTopbar() {
   const icon = document.getElementById("themIcon");
   const root = document.documentElement;
 
+  if (!toggleBtn || !icon) return;
+
   // Load saved theme
   const savedTheme = localStorage.getItem("theme");
   if (savedTheme === "dark") {
