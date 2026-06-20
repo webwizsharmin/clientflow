@@ -22,8 +22,11 @@
     --color-green-700: oklch(52.7% 0.154 150.069);
     --color-blue-50: oklch(97% 0.014 254.604);
     --color-blue-100: oklch(93.2% 0.032 255.585);
+    --color-blue-400: oklch(70.7% 0.165 254.624);
+    --color-blue-500: oklch(62.3% 0.214 259.815);
     --color-blue-600: oklch(54.6% 0.245 262.881);
     --color-blue-700: oklch(48.8% 0.243 264.376);
+    --color-blue-900: oklch(37.9% 0.146 265.522);
     --color-purple-100: oklch(94.6% 0.033 307.174);
     --color-purple-600: oklch(55.8% 0.288 302.321);
     --color-purple-700: oklch(49.6% 0.265 301.924);
@@ -43,6 +46,7 @@
     --color-gray-500: oklch(55.1% 0.027 264.364);
     --color-gray-600: oklch(44.6% 0.03 256.802);
     --color-gray-700: oklch(37.3% 0.034 259.733);
+    --color-gray-800: oklch(27.8% 0.033 256.848);
     --color-gray-900: oklch(21% 0.034 264.665);
     --color-black: #000;
     --color-white: #fff;
@@ -806,11 +810,6 @@
       display: block;
     }
   }
-  .md\:flex {
-    @media (width >= 48rem) {
-      display: flex;
-    }
-  }
   .md\:table-cell {
     @media (width >= 48rem) {
       display: table-cell;
@@ -866,6 +865,16 @@
       border-color: var(--color-slate-700);
     }
   }
+  .dark\:bg-blue-500 {
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-blue-500);
+    }
+  }
+  .dark\:bg-gray-800 {
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-gray-800);
+    }
+  }
   .dark\:bg-gray-900 {
     @media (prefers-color-scheme: dark) {
       background-color: var(--color-gray-900);
@@ -896,6 +905,15 @@
       color: var(--color-slate-400);
     }
   }
+  .dark\:hover\:bg-blue-400 {
+    @media (prefers-color-scheme: dark) {
+      &:hover {
+        @media (hover: hover) {
+          background-color: var(--color-blue-400);
+        }
+      }
+    }
+  }
   .dark\:hover\:bg-slate-700 {
     @media (prefers-color-scheme: dark) {
       &:hover {
@@ -914,6 +932,9 @@
   --tw-font-weight: var(--font-weight-semibold);
   font-weight: var(--font-weight-semibold);
   color: var(--color-slate-700);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-slate-200);
+  }
 }
 .form-input {
   width: 100%;
@@ -921,6 +942,7 @@
   border-style: var(--tw-border-style);
   border-width: 1px;
   border-color: var(--color-slate-300);
+  background-color: var(--color-white);
   padding-inline: calc(var(--spacing) * 4);
   padding-block: calc(var(--spacing) * 3);
   font-size: var(--text-sm);
@@ -939,6 +961,22 @@
   }
   &:focus {
     --tw-ring-color: var(--color-blue-100);
+  }
+  @media (prefers-color-scheme: dark) {
+    border-color: var(--color-slate-600);
+  }
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-gray-800);
+  }
+  @media (prefers-color-scheme: dark) {
+    &:focus {
+      border-color: var(--color-blue-400);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    &:focus {
+      --tw-ring-color: var(--color-blue-900);
+    }
   }
 }
 .btn-primary {
@@ -959,12 +997,23 @@
       background-color: var(--color-blue-700);
     }
   }
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-blue-500);
+  }
+  @media (prefers-color-scheme: dark) {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-blue-400);
+      }
+    }
+  }
 }
 .btn-secondary {
   border-radius: var(--radius-xl);
   border-style: var(--tw-border-style);
   border-width: 1px;
   border-color: var(--color-slate-300);
+  background-color: var(--color-slate-200);
   padding-inline: calc(var(--spacing) * 5);
   padding-block: calc(var(--spacing) * 3);
   --tw-font-weight: var(--font-weight-semibold);
@@ -975,7 +1024,20 @@
   transition-duration: var(--tw-duration, var(--default-transition-duration));
   &:hover {
     @media (hover: hover) {
-      background-color: var(--color-slate-100);
+      background-color: var(--color-slate-300);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-slate-700);
+  }
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-slate-200);
+  }
+  @media (prefers-color-scheme: dark) {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-slate-600);
+      }
     }
   }
 }
@@ -998,6 +1060,23 @@
   &:hover {
     @media (hover: hover) {
       color: var(--color-blue-600);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-slate-200);
+  }
+  @media (prefers-color-scheme: dark) {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-gray-700);
+      }
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-blue-400);
+      }
     }
   }
 }
@@ -1027,14 +1106,34 @@
   @media (width >= 48rem) {
     max-width: var(--container-md);
   }
+  @media (prefers-color-scheme: dark) {
+    border-color: var(--color-slate-600);
+  }
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-gray-800);
+  }
+  @media (prefers-color-scheme: dark) {
+    &:focus-within {
+      border-color: var(--color-blue-400);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    &:focus-within {
+      --tw-ring-color: var(--color-blue-900);
+    }
+  }
 }
 .search-bar input {
   width: 100%;
   background-color: transparent;
   font-size: var(--text-sm);
   line-height: var(--tw-leading, var(--text-sm--line-height));
+  color: var(--color-slate-700);
   --tw-outline-style: none;
   outline-style: none;
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-slate-200);
+  }
 }
 .icon-btn {
   border-radius: var(--radius-lg);
@@ -1047,6 +1146,13 @@
       background-color: var(--color-slate-100);
     }
   }
+  @media (prefers-color-scheme: dark) {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-gray-700);
+      }
+    }
+  }
 }
 .user-profile {
   display: flex;
@@ -1055,12 +1161,23 @@
   border-radius: var(--radius-lg);
   padding-inline: calc(var(--spacing) * 3);
   padding-block: calc(var(--spacing) * 2);
+  color: var(--color-slate-700);
   transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
   transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
   transition-duration: var(--tw-duration, var(--default-transition-duration));
   &:hover {
     @media (hover: hover) {
       background-color: var(--color-slate-50);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-slate-200);
+  }
+  @media (prefers-color-scheme: dark) {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-gray-700);
+      }
     }
   }
 }
@@ -1070,9 +1187,16 @@
   gap: calc(var(--spacing) * 4);
   border-radius: var(--radius-xl);
   background-color: var(--color-white);
-  padding: calc(var(--spacing) * 5);
-  --tw-shadow: 0 1px 3px 0 var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 1px 2px -1px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
+  padding: calc(var(--spacing) * 6);
+  color: var(--color-slate-800);
+  --tw-shadow: 0 10px 15px -3px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 4px 6px -4px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
   box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-gray-800);
+  }
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-slate-100);
+  }
 }
 .card-header {
   display: flex;
@@ -1085,6 +1209,9 @@
   --tw-font-weight: var(--font-weight-semibold);
   font-weight: var(--font-weight-semibold);
   color: var(--color-slate-500);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-slate-400);
+  }
 }
 .card-value {
   font-size: var(--text-2xl);
@@ -1092,6 +1219,9 @@
   --tw-font-weight: var(--font-weight-bold);
   font-weight: var(--font-weight-bold);
   color: var(--color-slate-800);
+  @media (prefers-color-scheme: dark) {
+    color: var(--color-slate-100);
+  }
 }
 @property --tw-space-y-reverse {
   syntax: "*";

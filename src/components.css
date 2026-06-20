@@ -1,53 +1,65 @@
 .form-label {
-  @apply mb-2 block text-sm font-semibold text-slate-700;
+  @apply mb-2 block text-sm font-semibold text-slate-700 dark:text-slate-200;
 }
 
 .form-input {
-  @apply w-full rounded-xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100;
+  @apply w-full rounded-xl border border-slate-300 dark:border-slate-600 
+  bg-white dark:bg-gray-800 px-4 py-3 text-sm outline-none transition 
+  focus:border-blue-600 focus:ring-4 focus:ring-blue-100 dark:focus:border-blue-400 dark:focus:ring-blue-900;
 }
 
 .btn-primary {
-  @apply rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-700;
+  @apply rounded-xl  px-5 py-3 text-sm font-semibold  transition 
+  bg-blue-600 dark:bg-blue-500 text-white hover:bg-blue-700 dark:hover:bg-blue-400;
 }
 
 .btn-secondary {
-  @apply rounded-xl border border-slate-300 px-5 py-3 font-semibold text-slate-700 transition hover:bg-slate-100;
+  @apply rounded-xl border border-slate-300 px-5 py-3 font-semibold transition
+  bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-300 dark:hover:bg-slate-600;
 }
 
 .sidebar-link {
-  @apply flex items-center gap-3 px-4 py-2 rounded-lg text-slate-600 hover:bg-blue-50 hover:text-blue-600 transition;
+  @apply flex items-center gap-3 px-4 py-2 rounded-lg 
+  text-slate-600 dark:text-slate-200 
+  hover:bg-blue-50 dark:hover:bg-gray-700 
+  hover:text-blue-600 dark:hover:text-blue-400 transition;
 }
 
 /* Topbar */
 .search-bar {
-  @apply flex items-center flex-1 max-w-xs md:max-w-md gap-2 bg-slate-50 px-3 py-2 rounded-lg border border-slate-200 focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-100;
+  @apply flex items-center flex-1 max-w-xs md:max-w-md gap-2 
+  bg-slate-50 dark:bg-gray-800 
+  px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-600 
+  focus-within:border-blue-600 dark:focus-within:border-blue-400 
+  focus-within:ring-2 focus-within:ring-blue-100 dark:focus-within:ring-blue-900;
 }
-
 .search-bar input {
-  @apply bg-transparent outline-none text-sm w-full;
+  @apply bg-transparent outline-none text-sm w-full text-slate-700 dark:text-slate-200;
 }
 
 .icon-btn {
-  @apply p-2 rounded-lg hover:bg-slate-100 transition;
+  @apply p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-gray-700 transition;
 }
 
 .user-profile {
-  @apply flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-slate-50 transition;
+  @apply flex items-center gap-2 px-3 py-2 rounded-lg 
+  hover:bg-slate-50 dark:hover:bg-gray-700 
+  text-slate-700 dark:text-slate-200 transition;
 }
 
 /* Dashboard cards */
 .card {
-  @apply bg-white rounded-xl shadow p-5 flex flex-col gap-4;
+  @apply bg-white dark:bg-gray-800 rounded-xl flex flex-col gap-4 
+  shadow-lg p-6 text-slate-800 dark:text-slate-100;
 }
-
 .card-header {
   @apply flex items-center justify-between;
 }
 
 .card-title {
-  @apply text-sm font-semibold text-slate-500;
+  @apply text-sm font-semibold text-slate-500 dark:text-slate-400;
 }
 
 .card-value {
-  @apply text-2xl font-bold text-slate-800;
+  @apply text-2xl font-bold text-slate-800 dark:text-slate-100;
 }

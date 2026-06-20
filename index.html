@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,11 +16,11 @@
     <title>Clientflow</title>
   </head>
   <body
-    class="flex h-screen bg-slate-50 dark:bg-gray-900 font-poppins overflow-x-hidden"
+    class="flex h-screen bg-slate-50 dark:bg-gray-900 text-slate-800 dark:text-slate-100 font-poppins overflow-x-hidden"
   >
     <!-- Sidebar -->
     <aside
-      class="w-16 lg:w-64 bg-white dark:bg-gray-900 dark:text-white shadow-md flex flex-col justify-between"
+      class="w-16 lg:w-64 bg-white dark:bg-gray-800 text-slate-700 dark:text-slate-200 shadow-md flex flex-col justify-between"
     >
       <nav>
         <ul>
@@ -86,11 +86,11 @@
     <div class="flex-1 flex flex-col overflow-hidden">
       <!-- Topbar -->
       <header
-        class="h-16 bg-white dark:bg-gray-900 dark:text-white shadow px-4 flex items-center justify-between gap-4"
+        class="h-16 bg-white dark:bg-gray-800 text-slate-700 dark:text-slate-200 shadow px-4 flex items-center justify-between gap-4"
       >
         <!-- Search bar -->
         <form role="search" class="search-bar">
-          <i class="bx bx-search text-slate-500 mr-2"></i>
+          <i class="bx bx-search text-slate-500 dark:text-slate-200 mr-2"></i>
           <input
             type="search"
             aria-label="Search Site Content"
@@ -103,7 +103,7 @@
         <button
           id="newClientBtn"
           type="button"
-          class="btn-primary text-sm px-4 py-2 whitespace-nowrap"
+          class="btn-primary bg-blue-600 dark:bg-blue-500 text-sm text-white hover:bg-blue-700 dark:hover:bg-blue-400 px-4 py-2 whitespace-nowrap"
         >
           + New Client
         </button>
@@ -133,7 +133,10 @@
       </header>
 
       <!-- Main Content -->
-      <main id="content" class="flex-1 p-6 overflow-y-auto bg-slate-50"></main>
+      <main
+        id="content"
+        class="flex-1 p-6 overflow-y-auto bg-slate-50 dark:bg-gray-900 text-slate-800 dark:text-slate-100"
+      ></main>
     </div>
 
     <!-- Client Modal Overlay -->
