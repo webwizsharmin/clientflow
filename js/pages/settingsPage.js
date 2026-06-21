@@ -3,8 +3,8 @@ export function renderSettingsPage() {
 
   content.innerHTML = `
     <div class="p-6">
-  <h1 class="text-2xl font-bold text-slate-800 mb-4">Settings</h1>
-  <p class="text-slate-500 mb-6">Manage your preferences here.</p>
+  <h1 class="text-2xl font-bold text-slate-800 dark:text-slate-100 mb-2">Settings</h1>
+  <p class="text-slate-500 dark:text-slate-400 mb-6">Manage your preferences here.</p>
 
   <!-- Theme Toggle -->
   <div class="bg-white dark:bg-slate-800 p-4 rounded shadow">
