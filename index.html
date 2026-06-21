@@ -142,24 +142,27 @@
     <!-- Client Modal Overlay -->
     <div
       id="clientModal"
-      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 backdrop-blur-sm p-4"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 dark:bg-black/60 backdrop-blur-sm p-4"
       role="div"
       aria-modal="true"
       aria-labelledby="clientModalTitle"
     >
       <!-- Modal Container -->
       <div
-        class="w-full sm:w-3/4 md:w-1/2 max-w-lg rounded-2xl bg-white shadow-2xl max-h-[90vh] flex flex-col animate-fadeIn"
+        class="w-full sm:w-3/4 md:w-1/2 max-w-lg rounded-2xl bg-white dark:bg-slate-900 shadow-2xl max-h-[90vh] flex flex-col animate-fadeIn border border-slate-200 dark:border-slate-700"
       >
         <!-- Modal Header -->
         <div
-          class="flex items-center justify-between border-b border-slate-200 px-6 py-4"
+          class="flex items-center justify-between border-b border-slate-200 dark:border-slate-700 px-6 py-4"
         >
           <div>
-            <h2 id="clientModalTitle" class="text-xl font-bold text-slate-800">
+            <h2
+              id="clientModalTitle"
+              class="text-xl font-bold text-slate-800 dark:text-slate-100"
+            >
               Add or Edit Client
             </h2>
-            <p class="mt-1 text-sm text-slate-500">
+            <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">
               Fill in the details to register a new client or edit a client.
             </p>
           </div>
@@ -169,7 +172,7 @@
             type="button"
             id="closeClientModal"
             aria-label="Close modal"
-            class="flex h-9 w-9 items-center justify-center rounded-full text-slate-500 transition hover:bg-slate-100 hover:text-slate-700"
+            class="flex h-9 w-9 items-center justify-center rounded-full text-slate-500 dark:text-slate-400 transition hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-200"
           >
             <i class="bx bx-x text-xl"></i>
           </button>
@@ -181,39 +184,51 @@
           <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
             <!-- Full Name -->
             <div>
-              <label for="clientName" class="form-label">Full Name</label>
+              <label
+                for="clientName"
+                class="form-label text-slate-700 dark:text-slate-300"
+                >Full Name</label
+              >
               <input
                 type="text"
                 id="clientName"
                 name="clientName"
                 placeholder="Jane Doe"
-                class="form-input"
+                class="form-input bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:border-indigo-500 focus:ring-indigo-500"
                 required
               />
             </div>
 
             <!-- Email -->
             <div>
-              <label for="clientEmail" class="form-label">Email</label>
+              <label
+                for="clientEmail"
+                class="form-label text-slate-700 dark:text-slate-300"
+                >Email</label
+              >
               <input
                 type="email"
                 id="clientEmail"
                 name="clientEmail"
                 placeholder="jane@company.com"
-                class="form-input"
+                class="form-input bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:border-indigo-500 focus:ring-indigo-500"
                 required
               />
             </div>
 
             <!-- Phone -->
             <div>
-              <label for="clientPhone" class="form-label">Phone</label>
+              <label
+                for="clientPhone"
+                class="form-label text-slate-700 dark:text-slate-300"
+                >Phone</label
+              >
               <input
                 type="tel"
                 id="clientPhone"
                 name="clientPhone"
                 placeholder="+880 1234-567890"
-                class="form-input"
+                class="form-input bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:border-indigo-500 focus:ring-indigo-500"
               />
             </div>
 
@@ -225,14 +240,22 @@
                 id="clientAddress"
                 name="clientAddress"
                 placeholder="Street, City, Country"
-                class="form-input"
+                class="form-input bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:border-indigo-500 focus:ring-indigo-500"
               />
             </div>
 
             <!-- Status -->
             <div>
-              <label for="status" class="form-label">Status</label>
-              <select name="clientStatus" id="clientStatus">
+              <label
+                for="status"
+                class="form-label text-slate-700 dark:text-slate-300"
+                >Status</label
+              >
+              <select
+                name="clientStatus"
+                id="clientStatus"
+                class="form-select bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 focus:border-indigo-500 focus:ring-indigo-500"
+              >
                 <option value="active">Active</option>
                 <option value="inactive">Inactive</option>
                 <option value="pending">Pending</option>
@@ -253,8 +276,16 @@
 
             <!-- Engagement -->
             <div>
-              <label for="engagement" class="form-label">Engagement</label>
-              <select name="clientEngagement" id="clientEngagement">
+              <label
+                for="engagement"
+                class="form-label text-slate-700 dark:text-slate-300"
+                >Engagement</label
+              >
+              <select
+                name="clientEngagement"
+                id="clientEngagement"
+                class="form-select bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 focus:border-indigo-500 focus:ring-indigo-500"
+              >
                 <option value="high">High</option>
                 <option value="medium">Medium</option>
                 <option value="low">Low</option>
@@ -264,12 +295,20 @@
 
           <!-- Footer Buttons -->
           <div
-            class="flex flex-col-reverse gap-3 border-t border-slate-200 pt-6 sm:flex-row sm:justify-end"
+            class="flex flex-col-reverse gap-3 border-t border-slate-200 dark:border-slate-700 pt-6 sm:flex-row sm:justify-end"
           >
-            <button type="button" id="cancelClientModal" class="btn-secondary">
+            <button
+              type="button"
+              id="cancelClientModal"
+              class="btn-secondary bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white"
+            >
               Cancel
             </button>
-            <button type="submit" id="saveClientModal" class="btn-primary">
+            <button
+              type="submit"
+              id="saveClientModal"
+              class="btn-primary bg-indigo-600 text-white hover:bg-indigo-700"
+            >
               Save Client
             </button>
           </div>
