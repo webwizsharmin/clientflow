@@ -32,7 +32,7 @@ import { renderKanban } from "./pages/tasksPage.js";
 import { renderSettingsPage } from "./pages/settingsPage.js";
 import { renderHelpsPage } from "./pages/help&support.js";
 import { renderleadsPage } from "./pages/leadsPage.js";
-import { initTopbar, initNotifications } from "./ui/topbar.js";
+import { initTopbar, initNotifications, initProfile } from "./ui/topbar.js";
 
 let clients = loadClients();
 
@@ -131,6 +131,17 @@ document.querySelectorAll(".sidebar-link").forEach((link) => {
 renderDashboardPage();
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Authentication check
+  const user = JSON.parse(localStorage.getItem("authUser"));
+  if (!user) {
+    window.location.href = "/login.html";
+    return;
+  } else {
+    document.querySelector("#profileToggle p").textContent = user.name;
+  }
+
+  // Initialize UI features
+  initProfile();
   initTopbar();
   initNotifications();
 });

@@ -133,11 +133,42 @@
             <i id="themeIcon" class="bx bx-sun text-xl"></i>
           </button>
 
-          <div class="flex items-center gap-2">
-            <i class="bx bx-user-circle text-2xl"></i>
-            <div class="hidden md:block">
-              <p class="text-sm font-semibold">John Doe</p>
-              <p class="text-xs text-slate-500">admin</p>
+          <div class="relative">
+            <!-- Profile trigger -->
+            <div
+              id="profileToggle"
+              class="flex items-center gap-2 cursor-pointer"
+            >
+              <i class="bx bx-user-circle text-2xl"></i>
+              <div class="hidden md:block">
+                <p class="text-sm font-semibold">John Doe</p>
+                <p class="text-xs text-slate-500">admin</p>
+              </div>
+            </div>
+
+            <!-- Dropdown -->
+            <div
+              id="profileBox"
+              class="absolute right-0 mt-2 w-48 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg shadow-lg hidden"
+            >
+              <ul class="divide-y divide-slate-200 dark:divide-slate-700">
+                <li
+                  class="px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer"
+                >
+                  Profile
+                </li>
+                <li
+                  class="px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer"
+                >
+                  Settings
+                </li>
+                <li
+                  class="px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer text-red-600"
+                  id="logoutBtn"
+                >
+                  Logout
+                </li>
+              </ul>
             </div>
           </div>
         </nav>

@@ -46,3 +46,32 @@ export function initNotifications() {
     }
   });
 }
+
+// profile functionality
+export function initProfile() {
+  const toggle = document.getElementById("profileToggle");
+  const box = document.getElementById("profileBox");
+  const logoutBtn = document.getElementById("logoutBtn");
+
+  if (!toggle || !box) return;
+
+  // Toggle dropdown
+  toggle.addEventListener("click", () => {
+    box.classList.toggle("hidden");
+  });
+
+  // Close when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!box.contains(e.target) && !toggle.contains(e.target)) {
+      box.classList.add("hidden");
+    }
+  });
+
+  // Logout functionality
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", () => {
+      localStorage.removeItem("authUser"); // clear session
+      window.location.href = "/login.html"; // redirect to login page
+    });
+  }
+}

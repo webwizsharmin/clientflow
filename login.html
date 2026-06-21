@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login - Clientflow</title>
+    <script type="module" src="./login.js"></script>
+    <link href="./input.css" rel="stylesheet" />
+  </head>
+  <body
+    class="flex items-center justify-center h-screen bg-slate-100 dark:bg-slate-900"
+  >
+    <div class="w-80 p-6 bg-white dark:bg-slate-800 rounded-lg shadow">
+      <h1 class="text-lg font-semibold mb-4 text-slate-700 dark:text-slate-200">
+        Login
+      </h1>
+      <form id="loginForm" class="flex flex-col gap-3">
+        <input
+          type="text"
+          id="username"
+          placeholder="Username"
+          class="border p-2 rounded"
+          required
+        />
+        <input
+          type="password"
+          id="password"
+          placeholder="Password"
+          class="border p-2 rounded"
+          required
+        />
+        <button type="submit" class="bg-blue-600 text-white py-2 rounded">
+          Login
+        </button>
+      </form>
+    </div>
+  </body>
+</html>
