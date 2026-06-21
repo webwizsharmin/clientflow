@@ -27,3 +27,22 @@ export function initTopbar() {
     }
   });
 }
+
+// Notification functionality
+export function initNotifications() {
+  const toggleBtn = document.getElementById("notificationToggle");
+  const box = document.getElementById("notificationBox");
+
+  if (!toggleBtn || !box) return;
+
+  toggleBtn.addEventListener("click", () => {
+    box.classList.toggle("hidden");
+  });
+
+  // Close when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!box.contains(e.target) && !toggleBtn.contains(e.target)) {
+      box.classList.add("hidden");
+    }
+  });
+}

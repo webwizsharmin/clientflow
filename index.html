@@ -110,8 +110,19 @@
 
         <!-- Control -->
         <nav aria-label="User controls" class="flex items-center gap-3">
-          <button tupe="button" aria-label="Notifications" class="icon-btn">
+          <button
+            id="notificationToggle"
+            type="button"
+            aria-label="notifications"
+            class="icon-btn relative"
+          >
             <i class="bx bx-bell text-xl"></i>
+            <!-- Badge -->
+            <span
+              id="notificationBadge"
+              class="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 bg-red-500 text-white rounded-full text-xs px-1"
+              >3</span
+            >
           </button>
           <button
             id="themeToggle"
@@ -659,6 +670,43 @@
             Close
           </button>
         </div>
+      </div>
+    </div>
+
+    <!-- Notification Box -->
+    <div
+      id="notificationBox"
+      class="absolute right-4 top-16 w-80 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg shadow-lg hidden flex-col"
+    >
+      <div class="px-4 py-2 border-b border-slate-200 dark:border-slate-700">
+        <h4 class="text-sm font-semibold text-slate-700 dark:text-slate-200">
+          Notifications
+        </h4>
+      </div>
+      <ul
+        class="divide-y divide-slate-200 dark:divide-slate-700 max-h-64 overflow-y-auto"
+      >
+        <li class="px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-800">
+          <p class="text-sm text-slate-700 dark:text-slate-300">
+            New client added
+          </p>
+          <span class="text-xs text-slate-400">2m ago</span>
+        </li>
+        <li class="px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-800">
+          <p class="text-sm text-slate-700 dark:text-slate-300">
+            Invoice #123 sent
+          </p>
+          <span class="text-xs text-slate-400">10m ago</span>
+        </li>
+      </ul>
+      <div
+        class="px-4 py-2 border-t border-slate-200 dark:border-slate-700 text-center"
+      >
+        <button
+          class="text-xs text-blue-600 dark:text-blue-400 hover:underline"
+        >
+          View all
+        </button>
       </div>
     </div>
     <!-- Load Chart.js globally -->

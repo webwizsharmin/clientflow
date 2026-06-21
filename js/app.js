@@ -32,7 +32,7 @@ import { renderKanban } from "./pages/tasksPage.js";
 import { renderSettingsPage } from "./pages/settingsPage.js";
 import { renderHelpsPage } from "./pages/help&support.js";
 import { renderleadsPage } from "./pages/leadsPage.js";
-import { initTopbar } from "./ui/topbar.js";
+import { initTopbar, initNotifications } from "./ui/topbar.js";
 
 let clients = loadClients();
 
@@ -132,4 +132,5 @@ renderDashboardPage();
 
 document.addEventListener("DOMContentLoaded", () => {
   initTopbar();
+  initNotifications();
 });
