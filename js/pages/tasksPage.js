@@ -7,23 +7,23 @@ export function renderKanban() {
 
   // Inject Kanban layout
   content.innerHTML = `
-    <h1 class="text-2xl font-bold text-slate-800 mb-2">Tasks</h1>
-    <p class="text-slate-500 mb-6">Manage your tasks with a Kanban board.</p>
+    <h1 class="text-2xl font-bold text-slate-800 dark:text-slate-100 mb-2">Tasks</h1>
+    <p class="text-slate-500 dark:text-slate-400 mb-6">Manage your tasks with a Kanban board.</p>
 
     <div class="mt-4">
       <button id="newTaskBtn" class="btn-primary">+ New Task</button>
     </div>
 
     <div id="kanbanBoard" class="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
-      <div class="kanban-column bg-gray-100 p-4 rounded-lg shadow">
+      <div class="kanban-column bg-gray-100 dark:bg-slate-800 p-4 rounded-lg shadow border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100">
         <h3 class="text-lg font-bold mb-3">To Do</h3>
         <div class="kanban-list min-h-75" data-status="todo"></div>
       </div>
-      <div class="kanban-column bg-gray-100 p-4 rounded-lg shadow">
+      <div class="kanban-column bg-gray-100 dark:bg-slate-800 p-4 rounded-lg shadow border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100">
         <h3 class="text-lg font-bold mb-3">In Progress</h3>
         <div class="kanban-list min-h-75" data-status="in-progress"></div>
       </div>
-      <div class="kanban-column bg-gray-100 p-4 rounded-lg shadow">
+      <div class="kanban-column bg-gray-100 dark:bg-slate-800 p-4 rounded-lg shadow border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100">
         <h3 class="text-lg font-bold mb-3">Done</h3>
         <div class="kanban-list min-h-75" data-status="done"></div>
       </div>
