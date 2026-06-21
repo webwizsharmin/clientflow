@@ -66,12 +66,4 @@ export function initProfile() {
       box.classList.add("hidden");
     }
   });
-
-  // Logout functionality
-  if (logoutBtn) {
-    logoutBtn.addEventListener("click", () => {
-      localStorage.removeItem("authUser"); // clear session
-      window.location.href = "/login.html"; // redirect to login page
-    });
-  }
 }

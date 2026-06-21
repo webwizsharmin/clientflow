@@ -131,15 +131,6 @@ document.querySelectorAll(".sidebar-link").forEach((link) => {
 renderDashboardPage();
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Authentication check
-  const user = JSON.parse(localStorage.getItem("authUser"));
-  if (!user) {
-    window.location.href = "/login.html";
-    return;
-  } else {
-    document.querySelector("#profileToggle p").textContent = user.name;
-  }
-
   // Initialize UI features
   initProfile();
   initTopbar();
