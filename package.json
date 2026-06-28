@@ -2,10 +2,11 @@
   "dependencies": {
     "@tailwindcss/cli": "^4.2.4",
     "chart.js": "^4.5.1",
+    "copyfiles": "^2.4.1",
     "tailwindcss": "^4.2.4"
   },
   "scripts": {
-    "build": "tailwindcss -i ./src/input.css -o ./dist/output.css && copyfiles -u 1 src/index.html dist && copyfiles -u 1 src/js/** dist",
+    "build": "tailwindcss -i ./src/input.css -o ./dist/output.css && copyfiles -a -u 1 src/index.html dist && copyfiles -a -u 1 src/js/**/* dist",
     "watch": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
     "preview": "npx serve dist"
   },
