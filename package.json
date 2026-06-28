@@ -5,8 +5,11 @@
     "tailwindcss": "^4.2.4"
   },
   "scripts": {
-    "build": "tailwindcss -i ./src/input.css -o ./dist/output.css && cp src/index.html dist/index.html",
+    "build": "tailwindcss -i ./src/input.css -o ./dist/output.css && copyfiles index.html dist",
     "watch": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
     "preview": "npx serve dist"
+  },
+  "devDependencies": {
+    "copyfiles": "^2.4.1"
   }
 }
