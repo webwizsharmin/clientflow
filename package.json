@@ -5,7 +5,7 @@
     "tailwindcss": "^4.2.4"
   },
   "scripts": {
-    "build": "tailwindcss -i ./src/input.css -o ./dist/output.css && copyfiles src/index.html dist && copyfiles src/js dist",
+    "build": "tailwindcss -i ./src/input.css -o ./dist/output.css && copyfiles -u 1 src/index.html dist && copyfiles -u 1 src/js/** dist",
     "watch": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
     "preview": "npx serve dist"
   },
