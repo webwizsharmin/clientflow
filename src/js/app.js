@@ -1,5 +1,11 @@
-import { saveClients, loadClients, loadInvoices } from "./storage.js";
-import { seedClients } from "./data/seed.js";
+import {
+  saveClients,
+  loadClients,
+  loadInvoices,
+  loadTasks,
+  saveTasks,
+} from "./storage.js";
+import { seedClients, seedTasks } from "./data/seed.js";
 import {
   addClient,
   editClient,
@@ -41,6 +47,14 @@ if (clients.length === 0) {
   saveClients(clients);
 }
 console.log("clients initialized:", clients);
+
+let tasks = loadTasks();
+if (tasks.length === 0) {
+  tasks = seedTasks;
+  saveTasks(tasks);
+}
+
+console.log("task initialized:", tasks);
 
 /*let inv = addInvoice({ id: "inv_003", clientId: 2, amount: 1500 });
 

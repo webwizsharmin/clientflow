@@ -1,3 +1,5 @@
+import { seedTasks } from "./data/seed.js";
+
 export function saveClients(clients) {
   localStorage.setItem("clients", JSON.stringify(clients));
 }
@@ -27,10 +29,21 @@ export function saveTasks(tasks) {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-// load invoices
+// load tasks
 export function loadTasks() {
   const taskData = localStorage.getItem("tasks");
-  return taskData ? JSON.parse(taskData) : [];
+
+  if (taskData) {
+    const parsed = JSON.parse(taskData);
+    if (parsed.length === 0) {
+      localStorage.setItem("tasks", JSON.stringify(seedTasks));
+      return seedTasks;
+    }
+    return parsed;
+  } else {
+    localStorage.setItem("tasks", JSON.stringify(seedTasks));
+    return seedTasks;
+  }
 }
 
 // LEADS

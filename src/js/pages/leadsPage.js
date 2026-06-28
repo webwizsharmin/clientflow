@@ -7,7 +7,7 @@ export function renderleadsPage() {
   <p class="text-slate-500 dark:text-slate-400 mb-6">Track potential clients and opportunities.</p>
 
   <div class="bg-white dark:bg-slate-900 p-4 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-700 animate-fadeIn">
-    <table class="table-auto w-full text-left text-sm">
+    <table class="table-auto min-w-full text-left text-sm border-collapse">
       <thead>
         <tr class="border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800">
           <th class="px-4 py-2 text-slate-700 dark:text-slate-200 font-semibold">Name</th>
