@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./output.css" />
+    <title>Clientflow</title>
+  </head>
+  <body
+    class="flex h-screen bg-slate-50 dark:bg-gray-900 text-slate-800 dark:text-slate-100 font-poppins overflow-x-hidden"
+  >
+    <!-- Sidebar -->
+    <aside
+      class="w-16 lg:w-64 bg-white dark:bg-gray-800 text-slate-700 dark:text-slate-200 shadow-md flex flex-col justify-between"
+    >
+      <nav>
+        <ul>
+          <li>
+            <a href="#home" class="sidebar-link flex items-center space-x-2">
+              <i class="bx bxs-dashboard text-xl"></i
+              ><span class="hidden lg:inline">Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="#clients" class="sidebar-link flex items-center space-x-2">
+              <i class="bx bxs-user text-xl"></i>
+              <span class="hidden lg:inline">Clients</span>
+            </a>
+          </li>
+          <li>
+            <a href="#leads" class="sidebar-link flex items-center space-x-2">
+              <i class="bx bxs-user-detail text-xl"></i>
+              <span class="hidden lg:inline">Leads</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#invoices"
+              class="sidebar-link flex items-center space-x-2"
+            >
+              <i class="bx bxs-spreadsheet text-xl"></i>
+              <span class="hidden lg:inline">Invoices</span>
+            </a>
+          </li>
+          <li>
+            <a href="#tasks" class="sidebar-link flex items-center space-x-2">
+              <i class="bx bx-task-x text-xl"></i>
+              <span class="hidden lg:inline">Tasks</span>
+            </a>
+          </li>
+          <li>
+            <a href="#setting" class="sidebar-link flex items-center space-x-2">
+              <i class="bx bxs-cog text-xl"></i>
+              <span class="hidden lg:inline">Setting</span>
+            </a>
+          </li>
+          <li>
+            <a href="#help" class="sidebar-link flex items-center space-x-2">
+              <i class="bx bxs-help-circle text-xl"></i>
+              <span class="hidden lg:inline">Help & Support</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="user-profile flex items-center space-x-2 p-2">
+        <i class="bx bx-user-circle text-2xl"></i>
+        <div class="hidden lg:block">
+          <p class="text-sm font-semibold">John Doe</p>
+          <p class="text-xs text-slate-500">admin</p>
+        </div>
+        <a href="#logout" class="sidebar-link">
+          <i class="bx bx-log-out text-xl"></i>
+        </a>
+      </div>
+    </aside>
+
+    <div class="flex-1 flex flex-col overflow-hidden">
+      <!-- Topbar -->
+      <header
+        class="h-16 bg-white dark:bg-gray-800 text-slate-700 dark:text-slate-200 shadow px-4 flex items-center justify-between gap-4"
+      >
+        <!-- Search bar -->
+        <form role="search" class="search-bar">
+          <i class="bx bx-search text-slate-500 dark:text-slate-200 mr-2"></i>
+          <input
+            type="search"
+            aria-label="Search Site Content"
+            placeholder="search . . ."
+            class="flex-1 border-none focus:ring-0"
+          />
+        </form>
+
+        <!-- Primary Action -->
+        <button
+          id="newClientBtn"
+          type="button"
+          class="btn-primary bg-blue-600 dark:bg-blue-500 text-sm text-white hover:bg-blue-700 dark:hover:bg-blue-400 px-4 py-2 whitespace-nowrap"
+        >
+          + New Client
+        </button>
+
+        <!-- Control -->
+        <nav aria-label="User controls" class="flex items-center gap-3">
+          <button
+            id="notificationToggle"
+            type="button"
+            aria-label="notifications"
+            class="icon-btn relative"
+          >
+            <i class="bx bx-bell text-xl"></i>
+            <!-- Badge -->
+            <span
+              id="notificationBadge"
+              class="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 bg-red-500 text-white rounded-full text-xs px-1"
+              >3</span
+            >
+          </button>
+          <button
+            id="themeToggle"
+            type="button"
+            aria-label="Toggle theme"
+            class="icon-btn"
+          >
+            <i id="themeIcon" class="bx bx-sun text-xl"></i>
+          </button>
+
+          <div class="relative">
+            <!-- Profile trigger -->
+            <div
+              id="profileToggle"
+              class="flex items-center gap-2 cursor-pointer"
+            >
+              <i class="bx bx-user-circle text-2xl"></i>
+              <div class="hidden md:block">
+                <p class="text-sm font-semibold">John Doe</p>
+                <p class="text-xs text-slate-500">admin</p>
+              </div>
+            </div>
+
+            <!-- Dropdown -->
+            <div
+              id="profileBox"
+              class="absolute right-0 mt-2 w-48 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg shadow-lg hidden"
+            >
+              <ul class="divide-y divide-slate-200 dark:divide-slate-700">
+                <li
+                  class="px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer"
+                >
+                  Profile
+                </li>
+                <li
+                  class="px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer"
+                >
+                  Settings
+                </li>
+                <li
+                  class="px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer text-red-600"
+                  id="logoutBtn"
+                >
+                  Logout
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <!-- Main Content -->
+      <main
+        id="content"
+        class="flex-1 p-6 overflow-y-auto bg-slate-50 dark:bg-gray-900 text-slate-800 dark:text-slate-100"
+      ></main>
+    </div>
+
+    <!-- Client Modal Overlay -->
+    <div
+      id="clientModal"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 dark:bg-black/60 backdrop-blur-sm p-4"
+      role="div"
+      aria-modal="true"
+      aria-labelledby="clientModalTitle"
+    >
+      <!-- Modal Container -->
+      <div
+        class="w-full sm:w-3/4 md:w-1/2 max-w-lg rounded-2xl bg-white dark:bg-slate-900 shadow-2xl max-h-[90vh] flex flex-col animate-fadeIn border border-slate-200 dark:border-slate-700"
+      >
+        <!-- Modal Header -->
+        <div
+          class="flex items-center justify-between border-b border-slate-200 dark:border-slate-700 px-6 py-4"
+        >
+          <div>
+            <h2
+              id="clientModalTitle"
+              class="text-xl font-bold text-slate-800 dark:text-slate-100"
+            >
+              Add or Edit Client
+            </h2>
+            <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">
+              Fill in the details to register a new client or edit a client.
+            </p>
+          </div>
+
+          <!-- Close Button -->
+          <button
+            type="button"
+            id="closeClientModal"
+            aria-label="Close modal"
+            class="flex h-9 w-9 items-center justify-center rounded-full text-slate-500 dark:text-slate-400 transition hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-200"
+          >
+            <i class="bx bx-x text-xl"></i>
+          </button>
+        </div>
+
+        <!-- Modal Body -->
+        <form id="clientForm" class="flex-1 overflow-y-auto p-6 space-y-6">
+          <!-- Grid -->
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <!-- Full Name -->
+            <div>
+              <label
+                for="clientName"
+                class="form-label text-slate-700 dark:text-slate-300"
+                >Full Name</label
+              >
+              <input
+                type="text"
+                id="clientName"
+                name="clientName"
+                placeholder="Jane Doe"
+                class="form-input bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:border-indigo-500 focus:ring-indigo-500"
+                required
+              />
+            </div>
+
+            <!-- Email -->
+            <div>
+              <label
+                for="clientEmail"
+                class="form-label text-slate-700 dark:text-slate-300"
+                >Email</label
+              >
+              <input
+                type="email"
+                id="clientEmail"
+                name="clientEmail"
+                placeholder="jane@company.com"
+                class="form-input bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:border-indigo-500 focus:ring-indigo-500"
+                required
+              />
+            </div>
+
+            <!-- Phone -->
+            <div>
+              <label
+                for="clientPhone"
+                class="form-label text-slate-700 dark:text-slate-300"
+                >Phone</label
+              >
+              <input
+                type="tel"
+                id="clientPhone"
+                name="clientPhone"
+                placeholder="+880 1234-567890"
+                class="form-input bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:border-indigo-500 focus:ring-indigo-500"
+              />
+            </div>
+
+            <!-- Address -->
+            <div>
+              <label for="clientAddress" class="form-label">Address</label>
+              <input
+                type="text"
+                id="clientAddress"
+                name="clientAddress"
+                placeholder="Street, City, Country"
+                class="form-input bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:border-indigo-500 focus:ring-indigo-500"
+              />
+            </div>
+
+            <!-- Status -->
+            <div>
+              <label
+                for="status"
+                class="form-label text-slate-700 dark:text-slate-300"
+                >Status</label
+              >
+              <select
+                name="clientStatus"
+                id="clientStatus"
+                class="form-select bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 focus:border-indigo-500 focus:ring-indigo-500"
+              >
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+                <option value="pending">Pending</option>
+              </select>
+            </div>
+
+            <!-- Last interaction Date
+              <div>
+                <label for="last-interaction-date" class="form-label"
+                  >Last Interaction Date</label
+                >
+                <input
+                  type="date"
+                  name="last-interaction-date"
+                  id="lastInteractionDate"
+                />
+              </div>  -->
+
+            <!-- Engagement -->
+            <div>
+              <label
+                for="engagement"
+                class="form-label text-slate-700 dark:text-slate-300"
+                >Engagement</label
+              >
+              <select
+                name="clientEngagement"
+                id="clientEngagement"
+                class="form-select bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 focus:border-indigo-500 focus:ring-indigo-500"
+              >
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Footer Buttons -->
+          <div
+            class="flex flex-col-reverse gap-3 border-t border-slate-200 dark:border-slate-700 pt-6 sm:flex-row sm:justify-end"
+          >
+            <button
+              type="button"
+              id="cancelClientModal"
+              class="btn-secondary bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              id="saveClientModal"
+              class="btn-primary bg-indigo-600 text-white hover:bg-indigo-700"
+            >
+              Save Client
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Client View modal -->
+    <div
+      id="viewClientModal"
+      class="hidden flex fixed inset-0 items-center justify-center bg-black/40 dark:bg-black/60 backdrop-blur-sm p-4"
+    >
+      <div
+        class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-2xl w-96 border border-slate-200 dark:border-slate-700 animate-fadeIn"
+      >
+        <h2
+          id="viewClientTitle"
+          class="text-xl font-bold mb-4 text-slate-800 dark:text-slate-100"
+        >
+          Client Details
+        </h2>
+        <div
+          id="viewClientContent"
+          class="space-y-2 text-slate-700 dark:text-slate-300"
+        ></div>
+        <button
+          id="closeViewClientModal"
+          class="btn-secondary mt-4 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white transition"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+
+    <!-- Invoice Modal Overlay -->
+    <div
+      id="invoiceModal"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 dark:bg-black/60 backdrop-blur-sm p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="invoiceModalTitle"
+    >
+      <div
+        class="w-full sm:w-3/4 md:w-1/2 max-w-lg rounded-2xl bg-white dark:bg-slate-900 shadow-2xl max-h-[90vh] flex flex-col animate-fadeIn border border-slate-200 dark:border-slate-700"
+      >
+        <!-- Header -->
+        <div
+          class="flex items-center justify-between border-b border-slate-200 dark:border-slate-700 px-6 py-4"
+        >
+          <div>
+            <h2
+              id="invoiceModalTitle"
+              class="text-xl font-bold text-slate-800 dark:text-slate-100"
+            >
+              Add or Edit Invoice
+            </h2>
+            <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">
+              Fill in the details to register a new invoice or edit a invoice.
+            </p>
+          </div>
+          <button
+            type="button"
+            id="closeInvoiceModal"
+            class="flex h-9 w-9 items-center justify-center rounded-full text-slate-500 dark:text-slate-400 transition hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-200"
+          >
+            <i class="bx bx-x text-xl"></i>
+          </button>
+        </div>
+
+        <!-- Body -->
+        <form id="invoiceForm" class="flex-1 overflow-y-auto p-6 space-y-6">
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <!-- Client (dropdown) -->
+            <div>
+              <label for="invoiceClient" class="form-label">Client</label>
+              <select
+                id="invoiceClient"
+                name="invoiceClient"
+                class="form-input"
+                required
+              >
+                <option value="">Select Client</option>
+                <!-- Populate dynamically from clients list -->
+              </select>
+            </div>
+
+            <!-- Status -->
+            <div>
+              <label for="invoiceStatus" class="form-label">Status</label>
+              <select
+                id="invoiceStatus"
+                name="invoiceStatus"
+                class="form-input"
+              >
+                <option value="paid">Paid</option>
+                <option value="unpaid">Unpaid</option>
+                <option value="pending">Pending</option>
+              </select>
+            </div>
+
+            <!-- Issue Date -->
+            <div>
+              <label for="invoiceDate" class="form-label">Issue Date</label>
+              <input
+                type="date"
+                id="invoiceDate"
+                name="invoiceDate"
+                class="form-input"
+                required
+              />
+            </div>
+
+            <!-- Items -->
+            <div class="md:col-span-2">
+              <label for="invoiceItems" class="form-label">Items</label>
+              <textarea
+                id="invoiceItems"
+                name="invoiceItems"
+                placeholder="list of items"
+                class="form-input"
+              ></textarea>
+            </div>
+
+            <!-- Amount -->
+            <div>
+              <label for="invoiceAmount" class="form-label">Amount</label>
+              <input
+                type="number"
+                id="invoiceAmount"
+                name="invoiceAmount"
+                placeholder="1000"
+                class="form-input"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Footer -->
+          <div
+            class="flex flex-col-reverse gap-3 border-t border-slate-200 pt-6 sm:flex-row sm:justify-end"
+          >
+            <button type="button" id="cancelInvoiceModal" class="btn-secondary">
+              Cancel
+            </button>
+            <button type="submit" id="saveInvoiceModal" class="btn-primary">
+              Save Invoice
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Invoice view modal -->
+    <div
+      id="viewInvModal"
+      class="hidden flex fixed inset-0 items-center justify-center bg-black/40 dark:bg-black/60 backdrop-blur-sm p-4"
+    >
+      <div
+        class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-2xl w-96 border border-slate-200 dark:border-slate-700 animate-fadeIn"
+      >
+        <h2
+          id="viewInvTitle"
+          class="text-xl font-bold mb-4 text-slate-800 dark:text-slate-100"
+        >
+          Invoice Details
+        </h2>
+        <div
+          id="viewInvContent"
+          class="space-y-2 text-slate-700 dark:text-slate-300"
+        ></div>
+        <button id="closeViewInvModal" class="btn-secondary mt-4">Close</button>
+      </div>
+    </div>
+
+    <!-- Task Add/Edit Modal -->
+    <div
+      id="taskModal"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 dark:bg-black/60 backdrop-blur-sm p-4"
+    >
+      <div
+        class="w-full sm:w-3/4 md:w-1/2 max-w-lg rounded-2xl bg-white dark:bg-slate-900 shadow-2xl max-h-[90vh] flex flex-col animate-fadeIn border border-slate-200 dark:border-slate-700"
+      >
+        <!-- Header -->
+        <div
+          class="flex items-center justify-between border-b border-slate-200 dark:border-slate-700 px-6 py-4"
+        >
+          <div>
+            <h2
+              id="taskModalTitle"
+              class="text-xl font-bold text-slate-800 dark:text-slate-100"
+            >
+              Add Task
+            </h2>
+            <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">
+              Fill in the details to add or edit a task.
+            </p>
+          </div>
+          <button
+            type="button"
+            id="closeTaskModal"
+            class="flex h-9 w-9 items-center justify-center rounded-full text-slate-500 dark:text-slate-400 transition hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-200"
+          >
+            <i class="bx bx-x text-xl"></i>
+          </button>
+        </div>
+
+        <!-- Form -->
+        <form id="taskForm" class="flex-1 overflow-y-auto p-6 space-y-6">
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <!-- Title -->
+            <div>
+              <label
+                for="taskTitle"
+                class="form-label text-slate-700 dark:text-slate-300"
+                >Title</label
+              >
+              <input
+                type="text"
+                id="taskTitle"
+                name="taskTitle"
+                class="form-input bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:border-indigo-500 focus:ring-indigo-500"
+                required
+              />
+            </div>
+
+            <!-- Status -->
+            <div>
+              <label
+                for="taskStatus"
+                class="form-label text-slate-700 dark:text-slate-300"
+                >Status</label
+              >
+              <select
+                id="taskStatus"
+                name="taskStatus"
+                class="form-input bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 focus:border-indigo-500 focus:ring-indigo-500"
+              >
+                <option value="todo">To Do</option>
+                <option value="in-progress">In Progress</option>
+                <option value="done">Done</option>
+              </select>
+            </div>
+
+            <!-- Priority -->
+            <div>
+              <label
+                for="taskPriority"
+                class="form-label text-slate-700 dark:text-slate-300"
+                >Priority</label
+              >
+              <select
+                id="taskPriority"
+                name="taskPriority"
+                class="form-input bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 focus:border-indigo-500 focus:ring-indigo-500"
+              >
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+
+            <!-- Due Date -->
+            <div>
+              <label
+                for="taskDueDate"
+                class="form-label text-slate-700 dark:text-slate-300"
+                >Due Date</label
+              >
+              <input
+                type="date"
+                id="taskDueDate"
+                name="taskDueDate"
+                class="form-input bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 focus:border-indigo-500 focus:ring-indigo-500"
+              />
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div>
+            <label
+              for="taskDescription"
+              class="form-label text-slate-700 dark:text-slate-300"
+              >Description</label
+            >
+            <textarea
+              id="taskDescription"
+              name="taskDescription"
+              rows="3"
+              class="form-input bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:border-indigo-500 focus:ring-indigo-500"
+            ></textarea>
+          </div>
+
+          <!-- Footer Buttons -->
+          <div
+            class="flex flex-col-reverse gap-3 border-t border-slate-200 dark:border-slate-700 pt-6 sm:flex-row sm:justify-end"
+          >
+            <button
+              type="button"
+              id="cancelTaskModal"
+              class="btn-secondary bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-white"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              id="saveTaskModal"
+              class="btn-primary bg-indigo-600 text-white hover:bg-indigo-700"
+            >
+              Save Task
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Task view Modal -->
+    <div
+      id="viewTaskModal"
+      class="hidden flex fixed inset-0 items-center justify-center bg-black/40 dark:bg-black/60 backdrop-blur-sm p-4"
+    >
+      <div
+        class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-2xl w-96 border border-slate-200 dark:border-slate-700 animate-fadeIn"
+      >
+        <!-- Header -->
+        <div class="flex justify-between items-center border-b px-6 py-3">
+          <h2 class="text-xl font-bold mb-4 text-slate-800 dark:text-slate-100">
+            Task Details
+          </h2>
+          <button
+            id="closeViewTaskModal"
+            class="text-gray-500 hover:text-gray-700"
+          >
+            &times;
+          </button>
+        </div>
+
+        <!-- Content -->
+        <div id="viewTaskContent" class="p-6 space-y-2">
+          <!-- JS will inject task details here -->
+        </div>
+
+        <!-- Footer -->
+        <div class="flex justify-end space-x-3 border-t px-6 py-4">
+          <button
+            type="button"
+            id="deleteTaskBtn"
+            class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+          >
+            Delete Task
+          </button>
+          <button
+            type="button"
+            id="closeViewTaskModalFooter"
+            class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notification Box -->
+    <div
+      id="notificationBox"
+      class="absolute right-4 top-16 w-80 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg shadow-lg hidden flex-col"
+    >
+      <div class="px-4 py-2 border-b border-slate-200 dark:border-slate-700">
+        <h4 class="text-sm font-semibold text-slate-700 dark:text-slate-200">
+          Notifications
+        </h4>
+      </div>
+      <ul
+        class="divide-y divide-slate-200 dark:divide-slate-700 max-h-64 overflow-y-auto"
+      >
+        <li class="px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-800">
+          <p class="text-sm text-slate-700 dark:text-slate-300">
+            New client added
+          </p>
+          <span class="text-xs text-slate-400">2m ago</span>
+        </li>
+        <li class="px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-800">
+          <p class="text-sm text-slate-700 dark:text-slate-300">
+            Invoice #123 sent
+          </p>
+          <span class="text-xs text-slate-400">10m ago</span>
+        </li>
+      </ul>
+      <div
+        class="px-4 py-2 border-t border-slate-200 dark:border-slate-700 text-center"
+      >
+        <button
+          class="text-xs text-blue-600 dark:text-blue-400 hover:underline"
+        >
+          View all
+        </button>
+      </div>
+    </div>
+    <!-- Load Chart.js globally -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script type="module" src="./js/app.js" defer></script>
+  </body>
+</html>
