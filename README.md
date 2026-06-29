@@ -27,6 +27,36 @@ I designed **Clientflow** as a case study project to demonstrate how a lightweig
 
 ---
 
+## Screenshots
+
+### Home
+
+![Home](./public/hero.png)
+
+### Client
+
+![Clinet](./public/clientPage.png)
+
+### Add new client Modal
+
+![newClient](./public/addNewClient.png)
+
+### Edit existing client
+
+![editClient](./public/editClient.png)
+
+### View Client
+
+![viewClient](./public/viewClient.png)
+
+### Invoice Page
+
+![Invoice](./public/invoicePage.png)
+
+### Task Page
+
+![Task](./public/taskPage.png)
+
 ## Project Structure
 
 ````Markdown
@@ -58,6 +88,8 @@ clientflow/
 │ └── public
 ├── dist/
 └── README.md
+
+
 
 
 
