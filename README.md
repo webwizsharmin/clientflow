@@ -29,6 +29,7 @@ I designed **Clientflow** as a case study project to demonstrate how a lightweig
 
 ## Project Structure
 
+````Markdown
 clientflow/
 ├── index.html
 ├── .gitignore
@@ -41,7 +42,7 @@ clientflow/
 | | ├──components
 | | | ├── clientModal.js
 | | | ├── invoiceModal.js
-| | | └──taskModal.js  
+| | | └──taskModal.js
 | | ├──data
 | | | ├── constant.js
 | | | ├── seed.js
@@ -58,6 +59,8 @@ clientflow/
 ├── dist/
 └── README.md
 
+
+
 ## Installation & Setup
 
 1. Clone the repository:
@@ -65,7 +68,7 @@ clientflow/
    ```bash
    git clone https://github.com/webwizsharmin/clientflow.git
 
-   ```
+````
 
 2. Navigation into the project:
 
