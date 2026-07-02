@@ -3,7 +3,9 @@
 Clientflow is a **SaaS style CRM dashboard** designed for freelancers and small teams.  
 It showcases my ability to build **modular, scalable frontend applications**
 
----
+**Live Demo:** [Live Demo](https://6a40c418d1723ce37d4f4294--incandescent-cobbler-823a8b.netlify.app/)
+
+## **Source Code:** https://github.com/webwizsharmin/clientflow
 
 ## Case Study: Why Clientflow?
 
@@ -59,7 +61,7 @@ I designed **Clientflow** as a case study project to demonstrate how a lightweig
 
 ## Project Structure
 
-````Markdown
+```Markdown
 clientflow/
 ├── index.html
 ├── .gitignore
@@ -89,9 +91,7 @@ clientflow/
 ├── dist/
 └── README.md
 
-
-
-
+```
 
 ## Installation & Setup
 
@@ -99,8 +99,7 @@ clientflow/
 
    ```bash
    git clone https://github.com/webwizsharmin/clientflow.git
-
-````
+   ```
 
 2. Navigation into the project:
 
@@ -150,3 +149,7 @@ Created by Sharmin Aktar
 - Portfolio: https://portfolio-eta-tawny-32.vercel.app/
 - LinkedIn: https://www.linkedin.com/in/webwizsharmin/
 - Email: webwizsharmin@gmail.com
+
+```
+
+```
