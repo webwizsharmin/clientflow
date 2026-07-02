@@ -5,7 +5,7 @@ It showcases my ability to build **modular, scalable frontend applications**
 
 **Live Demo:** [Live Demo](https://6a40c418d1723ce37d4f4294--incandescent-cobbler-823a8b.netlify.app/)
 
-## **Source Code:** https://github.com/webwizsharmin/clientflow
+**Source Code:** https://github.com/webwizsharmin/clientflow
 
 ## Case Study: Why Clientflow?
 
