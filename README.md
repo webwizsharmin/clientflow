@@ -3,7 +3,7 @@
 Clientflow is a **SaaS style CRM dashboard** designed for freelancers and small teams.  
 It showcases my ability to build **modular, scalable frontend applications**
 
-**Live Demo:** [Live Demo](https://6a40c418d1723ce37d4f4294--incandescent-cobbler-823a8b.netlify.app/)
+**Live Demo:** [Live Demo](https://incandescent-cobbler-823a8b.netlify.app/)
 
 **Source Code:** https://github.com/webwizsharmin/clientflow
 
